@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,6 +17,7 @@ import frameworkclasses.SeleniumFunctions;
 
 
 public class ReadFromCSV {
+	String pURL = "http://demo.guru99.com/V1/index.php";
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions();
 	
@@ -64,20 +66,46 @@ public class ReadFromCSV {
 		
 	}
 	
-	public void runTest() throws IOException {
+	public void validateMessage(String pMessage) throws InterruptedException {
+
+		boolean isSuccessCase = pMessage.equals("successful login");
+   
+        if(isSuccessCase) {
+        	//need to perform an asert
+        	this.driver.findElement(By.xpath("//img[1]"));
+        }
+        else
+        {
+        	//handle the alert message
+        	Alert alert = this.driver.switchTo().alert();
+    		String sAlertMessage = alert.getText();
+    		
+    		
+    		System.out.println(sAlertMessage);
+    		Thread.sleep(500);
+    		
+    		alert.accept();
+        	
+        }
+		
+	}
+	
+	public void runTest() throws IOException, InterruptedException {
 		this.driver = sfSelenium.getDriver();
 		sfSelenium.startReport("Read From CSV Report", "CSV Report");
 		sfSelenium.createTest("Start Test");
 		// Set URL
-		String pURL = "http://demo.guru99.com/V1/index.php";
+		//String pURL = "http://demo.guru99.com/V1/index.php";
 		
 		navigateToURL(pURL);
 		readCSV();
 		
 		
+		
 	}
 	
-	public void readCSV() throws IOException {
+	public void readCSV() throws IOException, InterruptedException {
+		
 		
 		Properties p = new Properties();
 		InputStream is = null;
@@ -107,9 +135,13 @@ public class ReadFromCSV {
 			String[] cols = line.split(";"); 
 		    String pUsername = cols[0];
 		    String pPassword = cols[1];
+		    String pMessage = cols[2];
 		    captureDetails(pUsername, pPassword);
 		    
-		    //System.out.println(username + " " + password );
+		    validateMessage(pMessage);
+		    //System.out.println(username + " " + password + " " + pMessage);
+		    navigateToURL(pURL);
+		    
 	}
 		
 }
