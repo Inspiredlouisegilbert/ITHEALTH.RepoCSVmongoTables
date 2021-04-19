@@ -1,2 +1,3 @@
-driverdir=c:\\chromedriver_win32\\chromedriver.exe
+driverdir=c:\\Selenium\\chromedriver_win32\\chromedriver.exe
 csvdir=C:\\tmp\\creditCard.csv
+csvLoc=C:\\temp\\login.csv
