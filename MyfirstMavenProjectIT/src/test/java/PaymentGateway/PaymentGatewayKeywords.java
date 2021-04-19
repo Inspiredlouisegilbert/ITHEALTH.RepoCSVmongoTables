@@ -9,12 +9,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import frameworkclasses.SeleniumFunctions;
 
@@ -25,16 +27,24 @@ public class PaymentGatewayKeywords {
 	
 	// driver variable
 	WebDriver driver;
+	
+	
 	// Set URL
-	
-	
 	String pURL = "http://demo.guru99.com";
+	
+	
+	
 	
 	// Navigate to demo.guru99.com
 	public void navigateToURL(String pURL) {
 		driver.get(pURL);
-		sfSelenium.maximiseBrowserWindow();
+		sfSelenium.maximiseBrowserWindow();	
 	}
+	
+	
+	
+	
+	
 	
 
 	public String getProperties(String pPropertyKey) {
@@ -56,7 +66,7 @@ public class PaymentGatewayKeywords {
 		return p.getProperty(pPropertyKey);
 	}
 	
-
+	
 	
 	// Click on Payment Gateway Link
 	public void clickPaymentGateway() {
@@ -346,10 +356,13 @@ public class PaymentGatewayKeywords {
 		
 		capturePaymentDetails(pCardNumber, pExpMonth, pExpYear, pCVV);
 		clickPay();
+		
 
 		//Create an object of the alert
 		Alert alert = this.driver.switchTo().alert();
-		
+		WebDriverWait wait = new WebDriverWait(this.driver,60);
+		wait.until(ExpectedConditions.alertIsPresent());
+
 		String sAlertMessage = alert.getText();
 		System.out.println(sAlertMessage);
 		//Thread.sleep(5000);

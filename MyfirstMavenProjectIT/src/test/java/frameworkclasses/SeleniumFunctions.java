@@ -81,11 +81,11 @@ public class SeleniumFunctions {
 		// For Window
 				//System.setProperty("webdriver.chrome.driver", "c:\\chromedriver_win32\\chromedriver.exe"); 
 		
-		// Set up implicit waits
-		this.driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
 		// Create an instance of ChromeDriver to execute our tests
 		this.driver = new ChromeDriver();	
+		// set the implicit wait
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 	}
 	
 
