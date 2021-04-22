@@ -225,6 +225,17 @@ public class SeleniumFunctions {
 		driver.manage().window().maximize();
 	}
 	
+	// Get Detail
+	public String getDetail(String sCssOfField) throws IOException {
+		// get field text
+		String sFieldText = this.driver.findElement(By.cssSelector(sCssOfField)).getText();
+		// print but remove this later
+	    System.out.println("getDetail: " + sFieldText);
+	    // return
+		return sFieldText;
+	}
+	
+	
 
 }
 

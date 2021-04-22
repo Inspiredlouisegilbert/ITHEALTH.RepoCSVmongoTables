@@ -520,6 +520,8 @@ public class PaymentGatewayKeywords {
 			}
 		    
 		} 
+		//close buffer
+		br.close();
 		
 	}
 	

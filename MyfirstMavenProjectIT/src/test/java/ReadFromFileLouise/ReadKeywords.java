@@ -42,10 +42,6 @@ public class ReadKeywords {
 	}
 	
 	
-	
-	
-	
-	
 
 	public String getProperties(String pPropertyKey) {
 		// Properties setup
@@ -134,82 +130,25 @@ public class ReadKeywords {
 	
 	// Go to the card generate
 	public void clickGenerateCardNumber() throws IOException {
+		// navigate to url
+		navigateToURL(pURL);
 		// click buy now
-		sfSelenium.clickLink("Generate Card Number");
-		// Switch focus to tab next/new tab/ browser window
-		sfSelenium.switchTab(1);	
+		sfSelenium.clickLink("here");
 		//take a screen shot
 		sfSelenium.logScreenShot();
 			
 		}
 	
-	// Get the payment details
-	public void getCreditCardDetails() throws IOException {
-		//// Get Card Number
-		//// Switch focus to tab next/new tab/ browser winder
-		sfSelenium.switchTab(1);
-		
-		//// Credit Card Number
-		//getCreditCardDetail(3,16);
-		//// CSS for the generated card number
-		String cssCreditCardNumber = "body.subpage:nth-child(2) section.wrapper:nth-child(3) div.inner > h4:nth-child(3)";
-		//// Get the credit card number
-		String sCreditCardNumber = this.driver.findElement(By.cssSelector(cssCreditCardNumber)).getText();
-		//// Print the sCreditCardNumber to view it
-	    System.out.println(sCreditCardNumber);
-	    //// Get the last 16 digits
-	    String sStrippedCardNumber = sfSelenium.getLastDigits(16, sCreditCardNumber);
-	    //// CVV number
-	    //// CSS for the generated cvv number
-	    String cssCvv = "body.subpage:nth-child(2) section.wrapper:nth-child(3) div.inner > h4:nth-child(4)";
-	    //// Get the CVV number
-	    String sCvv = this.driver.findElement(By.cssSelector(cssCvv)).getText();
-	    //// Print the CVV to view it
-	    System.out.println(sCvv);
-	    //// Get the last 3 digits
-	    String sStrippedCvv = sfSelenium.getLastDigits(3, sCvv);
-	    
-	    //// Year
-	    String cssYear = "body.subpage:nth-child(2) section.wrapper:nth-child(3) div.inner > h4:nth-child(5)";
-	    //// Get the YEAR
-	    String sYear = this.driver.findElement(By.cssSelector(cssYear)).getText();
-	    //// Print the YEAR to view it
-	    System.out.println(sYear);
-	    //// Get the last xx digits
-	    String sStrippedYear = sfSelenium.getLastDigits(4, sYear);
-	    
-	    //// Month
-	    String cssMonth = "body.subpage:nth-child(2) section.wrapper:nth-child(3) div.inner > h4:nth-child(5)";
-	    //// Get the Month
-	    String sMonth = this.driver.findElement(By.cssSelector(cssMonth)).getText();
-	    //// Print the Month to view it
-	    System.out.println(sMonth);
-	    //// Get the last xx digits
-	    String sStrippedYearMonth = sfSelenium.getLastDigits(7, sYear);
-	    String sStrippedMonth = sfSelenium.getFirstDigits(2, sStrippedYearMonth);
-	    
-		//// Switch back to the originating tab
-	    sfSelenium.switchTab(0);
-	    //// Populate the Input Field
-	    sfSelenium.populateInputField(By.name("card_nmuber"), sStrippedCardNumber);
-	    //// Populate cvv input filed
-	    sfSelenium.populateInputField(By.name("cvv_code"), sStrippedCvv);
-	    //// Populate Expiration Year
-	 	sfSelenium.populateDropDown("year", sStrippedYear);
-	 	//// Populate Expiration Month
-	 	sfSelenium.populateDropDown("month", sStrippedMonth);
-	    
-	    //// Log a Screenshot to the report
-	 	sfSelenium.logScreenShot();
-	 		
-	 	//// Capture Payment Detail - Click Pay
-	 	this.driver.findElement(By.name("submit")).click();
-		
-		this.driver.findElement(By.xpath("//h2[contains(text(),'Payment successfull!')]"));
-		
-		
-		
-	}
+//	// Get Detail
+//	public String getDetail(String sCssOfField) throws IOException {
+//		// get field text
+//		String sFieldText = this.driver.findElement(By.cssSelector(sCssOfField)).getText();
+//		// print but remove this later
+//	    System.out.println("getDetail: " + sFieldText);
+//	    // return
+//		return sFieldText;
+//	}
+	
 	
 	public String getCreditCardDetail(int iChildField,int igetLastDigits) throws IOException {
 		//// CSS for the field
@@ -302,14 +241,25 @@ public class ReadKeywords {
 		sfSelenium.clickLink("Check Credit Card Limit");
 	}
 	
+	public void captureEmail( String pEmailaddi) throws IOException {
+		// Capture Card Number
+		sfSelenium.populateInputField(By.name("emailid"), pEmailaddi);
+	}
+	
 	public void captureDetails( String pCredNo) throws IOException {
 		// Capture Card Number
 		sfSelenium.populateInputField(By.name("card_nmuber"), pCredNo);
 	}
 	
 	public void clickSubmit() {
-		this.driver.findElement(By.xpath("//input[@value='submit']")).click();
+		try {
+			this.driver.findElement(By.xpath("//input[@value='submit']")).click();
+		}	catch (Exception e){
+				this.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+			}
 	}
+		
+
 	
 	public void runNewTestAlert() throws IOException, InterruptedException {
 
@@ -558,7 +508,18 @@ public class ReadKeywords {
 			}
 		    
 		}	
+		//  close the buffer
+		br.close();
 		
+	}
+	
+	public void runTestGetEmailData() throws IOException {
+		clickGenerateCardNumber();
+		//generateDateTimeStamp in extent reports
+		captureEmail("sdfsdf@sdfsd.com");
+		clickSubmit();
+		String pEmailaddress = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(4) > td:nth-child(2)");
+		String pPassword = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(5) > td:nth-child(2)");
 	}
 	
 	public void cleanup () throws IOException, InterruptedException {
@@ -566,10 +527,7 @@ public class ReadKeywords {
 		// set the value for driver
 		this.driver = sfSelenium.getDriver();
 		sfSelenium.CloseSelenium();
-		
-		
 	}
-
 	
 }
 

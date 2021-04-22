@@ -3,6 +3,8 @@ package ReadFromFileLouise;
 import java.io.IOException;
 //import com.opencsv.exceptions.CsvValidationException;
 
+import org.openqa.selenium.By;
+
 public class ReadMain {
 
 	public static void main(String[] args) throws IOException, InterruptedException  {
@@ -13,8 +15,10 @@ public class ReadMain {
 		
 		// call runTest
 		pgKeywords.runTestStart();
+		pgKeywords.runTestGetEmailData();
 		pgKeywords.runTestReadFromFile();
 		pgKeywords.cleanup();
 	}
 
 }
+    
