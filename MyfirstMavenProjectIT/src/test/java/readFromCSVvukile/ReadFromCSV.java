@@ -13,11 +13,15 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import frameworkclasses.ExtentReportClass;
 import frameworkclasses.SeleniumFunctions;
 
 
 public class ReadFromCSV {
 	String pURL = "http://demo.guru99.com/V1/index.php";
+	
+	//report declaration
+	//ExtentReportClass extReports = new ExtentReportClass();
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions();
 	
@@ -89,6 +93,7 @@ public class ReadFromCSV {
         }
 		
 	}
+
 	
 	public void runTest() throws IOException, InterruptedException {
 		this.driver = sfSelenium.getDriver();
@@ -99,7 +104,7 @@ public class ReadFromCSV {
 		
 		navigateToURL(pURL);
 		readCSV();
-		
+		sfSelenium.CloseSelenium();
 		
 		
 	}
@@ -141,6 +146,7 @@ public class ReadFromCSV {
 		    validateMessage(pMessage);
 		    //System.out.println(username + " " + password + " " + pMessage);
 		    navigateToURL(pURL);
+		    
 		    
 	}
 		
