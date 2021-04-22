@@ -520,7 +520,10 @@ public class ReadKeywords {
 		clickSubmit();
 		String pEmailaddress = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(4) > td:nth-child(2)");
 		String pPassword = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(5) > td:nth-child(2)");
+	    //captureDetails(pEmailaddress, pPassword);
+	    //validateMessage(pMessage);
 	}
+	
 	
 	public void cleanup () throws IOException, InterruptedException {
 		sfSelenium.createTest("Run Test: clean up");
