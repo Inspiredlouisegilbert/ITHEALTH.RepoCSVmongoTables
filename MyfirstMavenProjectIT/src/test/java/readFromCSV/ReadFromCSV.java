@@ -1,4 +1,4 @@
-package readFromCSVvukile;
+package readFromCSV;
 
 import java.util.List;
 import java.io.BufferedReader;
@@ -12,6 +12,8 @@ import java.util.Properties;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import frameworkclasses.SeleniumFunctions;
 
@@ -66,6 +68,11 @@ public class ReadFromCSV {
 		
 	}
 	
+	public void waitForAlert(int elementWait) {
+		WebDriverWait wait = new WebDriverWait(this.driver,elementWait);
+    	wait.until(ExpectedConditions.alertIsPresent());
+	}
+	
 	public void validateMessage(String pMessage) throws InterruptedException {
 
 		boolean isSuccessCase = pMessage.equals("successful login");
@@ -76,6 +83,8 @@ public class ReadFromCSV {
         }
         else
         {
+        	// wait for the alert
+        	waitForAlert(10);
         	//handle the alert message
         	Alert alert = this.driver.switchTo().alert();
     		String sAlertMessage = alert.getText();
@@ -99,9 +108,7 @@ public class ReadFromCSV {
 		
 		navigateToURL(pURL);
 		readCSV();
-		
-		
-		
+		sfSelenium.CloseSelenium();
 	}
 	
 	public void readCSV() throws IOException, InterruptedException {

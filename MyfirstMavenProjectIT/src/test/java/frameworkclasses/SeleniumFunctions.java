@@ -21,6 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import frameworkclasses.ExtentReportClass;
 
+
 // Mongo DB imports
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -83,11 +84,13 @@ public class SeleniumFunctions {
 		
 		// Create an instance of ChromeDriver to execute our tests
 		this.driver = new ChromeDriver();	
+		
 		// set the implicit wait
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 	}
 	
+
 
 	public void startReport(String sReportName, String sTitle) {
 		extReports.startReport(sReportName, sTitle);

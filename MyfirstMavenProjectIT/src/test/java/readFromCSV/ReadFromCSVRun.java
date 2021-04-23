@@ -1,4 +1,4 @@
-package readFromCSVvukile;
+package readFromCSV;
 
 import java.io.IOException;
 
