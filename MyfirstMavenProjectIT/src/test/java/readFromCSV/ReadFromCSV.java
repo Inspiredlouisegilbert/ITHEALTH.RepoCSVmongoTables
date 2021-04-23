@@ -1,6 +1,5 @@
 package readFromCSV;
 
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -47,7 +46,7 @@ public class ReadFromCSV {
 	
 
 	
-	// Navigate to demo.guru99.com
+	// Read from CSV methods
 	public void navigateToURL(String pURL) throws IOException {
 		
 		this.driver.get(pURL);
@@ -119,25 +118,8 @@ public class ReadFromCSV {
 		
 	}
 	
-	public void runTest() throws IOException, InterruptedException {
-		this.driver = sfSelenium.getDriver();
-		sfSelenium.startReport("Read From CSV Report", "CSV Report");
-		sfSelenium.createTest("Test Started: Read From CSV Report");
-		
-		
-		
-		// Set URL
-		//String pURL = "http://demo.guru99.com/V1/index.php";
-		
-		navigateToURL(pURL);
-		
-		readCSV();
-		sfSelenium.createTest("Test Ended: Read From CSV Report");
-		sfSelenium.CloseSelenium();
-		
-	}
-	
 	public void readCSV() throws IOException, InterruptedException {
+
 		
 		Properties p = new Properties();
 		InputStream is = null;
@@ -177,6 +159,22 @@ public class ReadFromCSV {
 		    
 	}
 		
+		
+		
 }
+	
+	
+	// Run Test Section
+	public void runTest() throws IOException, InterruptedException {
+		this.driver = sfSelenium.getDriver();
+		sfSelenium.startReport("Read From CSV Report", "CSV Report");
+		sfSelenium.createTest("Test Started: Read From CSV Report");
+		
+		navigateToURL(pURL);
+		readCSV();
+		sfSelenium.createTest("Test Ended: Read From CSV Report");
+		sfSelenium.CloseSelenium();
+		
+	}
 
 }

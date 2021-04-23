@@ -119,6 +119,7 @@ public class SeleniumFunctions {
 			
 			// output to extent Reports
 			extReports.logFail(sActualValue, sExpectedValue);
+			
 		}
 
 	}
