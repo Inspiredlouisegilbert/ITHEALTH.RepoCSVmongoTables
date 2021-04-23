@@ -86,7 +86,7 @@ public class SeleniumFunctions {
 		this.driver = new ChromeDriver();	
 		
 		// set the implicit wait
-		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		this.driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		
 	}
 	
@@ -147,7 +147,7 @@ public class SeleniumFunctions {
 		WebElement selectedoption = sDrpDown.getFirstSelectedOption();
 		String sActualValue = selectedoption.getText();
 		String sExpectedValue = pValue;
-		this.doValidation(sActualValue, sExpectedValue);
+		//this.doValidation(sActualValue, sExpectedValue);
 	}
 	
 	public void updateReport (String sActualValue, String sExpectedValue) {
@@ -166,7 +166,7 @@ public class SeleniumFunctions {
 		// set the value for ExpectedValue 
 		String sExpectedValue = inputValue;
 		
-		this.doValidation(sExpectedValue, sActualValue);
+		//this.doValidation(sExpectedValue, sActualValue);
 		
 	}
 	

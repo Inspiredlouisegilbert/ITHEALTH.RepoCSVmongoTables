@@ -48,9 +48,12 @@ public class ReadFromCSV {
 
 	
 	// Navigate to demo.guru99.com
-	public void navigateToURL(String pURL) {
+	public void navigateToURL(String pURL) throws IOException {
+		
 		this.driver.get(pURL);
 		sfSelenium.maximiseBrowserWindow();	
+		sfSelenium.logScreenShot();
+		
 	}
 	
 	public void clickLogin() {
@@ -73,28 +76,45 @@ public class ReadFromCSV {
     	wait.until(ExpectedConditions.alertIsPresent());
 	}
 	
-	public void validateMessage(String pMessage) throws InterruptedException {
+	public void validateMessage(String pMessage) throws InterruptedException, IOException {
 
 		boolean isSuccessCase = pMessage.equals("successful login");
+ 
    
         if(isSuccessCase) {
-        	//need to perform an asert
-        	this.driver.findElement(By.xpath("//img[1]"));
-        }
+    		try   
+  		  {    
+  		    if(this.driver.findElement(By.xpath("//img[1mm]")).isDisplayed() )     
+  		    {      
+  		    	sfSelenium.createTest("Is a Positive test case");
+  	        	sfSelenium.logScreenShot();
+  		    }    
+  		  }      
+  		  catch(Exception e)     
+  		  {       
+  			  sfSelenium.createTest("Is a Positive test case");
+  			  sfSelenium.doValidation("Success Case Failed", "Image not found");
+  			  sfSelenium.logScreenShot();
+  			  
+  		  }       
+  		}  
+        	
         else
         {
-        	// wait for the alert
-        	waitForAlert(10);
-        	//handle the alert message
-        	Alert alert = this.driver.switchTo().alert();
-    		String sAlertMessage = alert.getText();
-    		
-    		
-    		System.out.println(sAlertMessage);
-    		Thread.sleep(500);
-    		
-    		alert.accept();
-        	
+	   		sfSelenium.createTest("Is a Negative test case");
+	       	// wait for the alert
+	       	waitForAlert(10);
+	       	//handle the alert message
+	       	Alert alert = this.driver.switchTo().alert();
+	   		String sAlertMessage = alert.getText();
+	   		
+	   		
+	   		System.out.println(sAlertMessage);
+	   		Thread.sleep(500);
+	   		
+	   		alert.accept();  
+	   		sfSelenium.doValidation(sAlertMessage, "User is not valid");
+	        	
         }
 		
 	}
@@ -102,17 +122,22 @@ public class ReadFromCSV {
 	public void runTest() throws IOException, InterruptedException {
 		this.driver = sfSelenium.getDriver();
 		sfSelenium.startReport("Read From CSV Report", "CSV Report");
-		sfSelenium.createTest("Start Test");
+		sfSelenium.createTest("Test Started: Read From CSV Report");
+		
+		
+		
 		// Set URL
 		//String pURL = "http://demo.guru99.com/V1/index.php";
 		
 		navigateToURL(pURL);
+		
 		readCSV();
+		sfSelenium.createTest("Test Ended: Read From CSV Report");
 		sfSelenium.CloseSelenium();
+		
 	}
 	
 	public void readCSV() throws IOException, InterruptedException {
-		
 		
 		Properties p = new Properties();
 		InputStream is = null;
@@ -148,6 +173,7 @@ public class ReadFromCSV {
 		    validateMessage(pMessage);
 		    //System.out.println(username + " " + password + " " + pMessage);
 		    navigateToURL(pURL);
+		    
 		    
 	}
 		
