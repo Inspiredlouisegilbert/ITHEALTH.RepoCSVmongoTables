@@ -19,32 +19,46 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
 
 import frameworkclasses.SeleniumFunctions;
 
 
 public class GetDataKeywords {
 	
-	// Selenium Functions 
-	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
-	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
+
+	
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 
 	// driver variable
 	WebDriver driver;
 
 	// Set URL
 	String pURL = "http://demo.guru99.com/V1/index.php";
+	
+
+
+
+	
 
 	// Navigate to demo.guru99.com
+	
 	public void navigateToURL(String pURL) {
 		driver.get(pURL);
 		sfSelenium.maximiseBrowserWindow();	
 	}
 	
+
+
 	public String getProperties(String pPropertyKey) {
+		
 		// Properties setup
 				Properties p = new Properties();
 				InputStream is = null;
@@ -516,22 +530,23 @@ public class GetDataKeywords {
 	}
 	
 	@Test
-	public void runTestGetEmailData() throws IOException, InterruptedException {
+	@Parameters  ({"val1"})
+	public void runTestGetEmailData(String val1) throws IOException, InterruptedException {
 		String pMessage ="sdfsdf";
+		System.out.println(val1);
 		int min = 1;
 		int max = 10000;
 		int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
-        System.out.println("randomNumber = " + randomNum);
 		clickGenerateCardNumber();
 		//generateDateTimeStamp in extent reports
-		System.out.println();
+		
 		captureEmail(randomNum + "@randomdomain.com");
 		clickSubmit();
 		String pEmailaddress = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(4) > td:nth-child(2)");
 		String pPassword = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(5) > td:nth-child(2)");
 		navigateToURL(pURL);
 		captureLoginDetails(pEmailaddress, pPassword);
-		clickSubmit();
+		
 		
 		//objRead.validateMessage(pMessage);
 	}
@@ -541,7 +556,7 @@ public class GetDataKeywords {
 		sfSelenium.createTest("Run Test: clean up");
 		// set the value for driver
 		this.driver = sfSelenium.getDriver();
-		//sfSelenium.CloseSelenium();
+		sfSelenium.CloseSelenium();
 	}
 	
 }

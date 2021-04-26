@@ -13,7 +13,7 @@ public class GetDataMain {
 		
 		// call runTest
 		pgKeywords.runTestStart();
-		pgKeywords.runTestGetEmailData();
+		pgKeywords.runTestGetEmailData("33333");
 		
 		pgKeywords.cleanup();
 	}

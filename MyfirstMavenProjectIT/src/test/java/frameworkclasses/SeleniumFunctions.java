@@ -25,7 +25,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.util.PDFTextStripper;
 import org.testng.Assert;
-
+import org.testng.annotations.Parameters;
 
 import frameworkclasses.ExtentReportClass;
 
@@ -89,6 +89,7 @@ public class SeleniumFunctions {
 		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
 		// determine which driver to use
+		
 		if (driverName.contains("chrome")) {
 			this.driver = new ChromeDriver();	
 			}
