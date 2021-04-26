@@ -1,4 +1,4 @@
-package ReadFromFileLouise;
+package GetData;
 
 
 import java.util.List;
@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -20,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import frameworkclasses.SeleniumFunctions;
 
-public class ReadMain {
+public class GetDataKeywords {
 	
 	// Selenium Functions 
 	SeleniumFunctions sfSelenium = new SeleniumFunctions();
@@ -514,9 +515,14 @@ public class ReadMain {
 	}
 	
 	public void runTestGetEmailData() throws IOException {
+		int min = 1;
+		int max = 10000;
+		int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+        System.out.println("randomNumber = " + randomNum);
 		clickGenerateCardNumber();
 		//generateDateTimeStamp in extent reports
-		captureEmail("sdfsdf@sdfsd.com");
+		System.out.println();
+		captureEmail(randomNum + "@randomdomain.com");
 		clickSubmit();
 		String pEmailaddress = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(4) > td:nth-child(2)");
 		String pPassword = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(5) > td:nth-child(2)");
