@@ -26,20 +26,40 @@ import frameworkclasses.SeleniumFunctions;
 
 public class GetDataKeywords {
 	
+	//private String stringggg;
 	// Selenium Functions 
-	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
-	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
+	//this.SeleniumFunctions() = sfSelenium;
 	
-	// driver variable
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
+//	
+//	// driver variable
 	WebDriver driver;
-	
-	
-	// Set URL
+//	
+//	
+//	// Set URL
 	String pURL = "http://demo.guru99.com/V1/index.php";
 	
 	
 	
 	
+	public GetDataKeywords(String stringggg) {
+		// TODO Auto-generated constructor stub
+		System.out.println(stringggg);
+//		SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
+////		SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
+////		//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
+//	//	
+////		// driver variable
+//		WebDriver driver;
+//	//	
+//	//	
+////		// Set URL
+//	String pURL = "http://demo.guru99.com/V1/index.php";
+	}
+
+
+
 	// Navigate to demo.guru99.com
 	public void navigateToURL(String pURL) {
 		driver.get(pURL);
@@ -169,8 +189,9 @@ public class GetDataKeywords {
 	
 	///// Run tests /////
 	@BeforeTest
-	public void runTestStart () {
+	public  void runTestStart () {
 		// set the value for driver
+		
 		this.driver = sfSelenium.getDriver();
 		//start the test
 		// Set up the report
