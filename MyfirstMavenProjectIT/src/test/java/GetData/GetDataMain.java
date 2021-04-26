@@ -14,6 +14,7 @@ public class GetDataMain {
 		// call runTest
 		pgKeywords.runTestStart();
 		pgKeywords.runTestGetEmailData();
+		
 		pgKeywords.cleanup();
 	}
 

@@ -24,41 +24,19 @@ import org.testng.annotations.Test;
 
 import frameworkclasses.SeleniumFunctions;
 
+
 public class GetDataKeywords {
 	
-	//private String stringggg;
 	// Selenium Functions 
-	//this.SeleniumFunctions() = sfSelenium;
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
-	//SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
-	SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
-//	
-//	// driver variable
+
+	// driver variable
 	WebDriver driver;
-//	
-//	
-//	// Set URL
+
+	// Set URL
 	String pURL = "http://demo.guru99.com/V1/index.php";
-	
-	
-	
-	
-	public GetDataKeywords(String stringggg) {
-		// TODO Auto-generated constructor stub
-		System.out.println(stringggg);
-//		SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
-////		SeleniumFunctions sfSelenium = new SeleniumFunctions(stringggg);
-////		//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
-//	//	
-////		// driver variable
-//		WebDriver driver;
-//	//	
-//	//	
-////		// Set URL
-//	String pURL = "http://demo.guru99.com/V1/index.php";
-	}
-
-
 
 	// Navigate to demo.guru99.com
 	public void navigateToURL(String pURL) {
@@ -66,8 +44,6 @@ public class GetDataKeywords {
 		sfSelenium.maximiseBrowserWindow();	
 	}
 	
-	
-
 	public String getProperties(String pPropertyKey) {
 		// Properties setup
 				Properties p = new Properties();
@@ -540,7 +516,8 @@ public class GetDataKeywords {
 	}
 	
 	@Test
-	public void runTestGetEmailData() throws IOException {
+	public void runTestGetEmailData() throws IOException, InterruptedException {
+		String pMessage ="sdfsdf";
 		int min = 1;
 		int max = 10000;
 		int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
@@ -552,8 +529,11 @@ public class GetDataKeywords {
 		clickSubmit();
 		String pEmailaddress = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(4) > td:nth-child(2)");
 		String pPassword = sfSelenium.getDetail("body:nth-child(2) table:nth-child(10) tbody:nth-child(1) tr:nth-child(5) > td:nth-child(2)");
-	    //captureDetails(pEmailaddress, pPassword);
-	    //validateMessage(pMessage);
+		navigateToURL(pURL);
+		captureLoginDetails(pEmailaddress, pPassword);
+		clickSubmit();
+		
+		//objRead.validateMessage(pMessage);
 	}
 	
 	@AfterTest
@@ -561,7 +541,7 @@ public class GetDataKeywords {
 		sfSelenium.createTest("Run Test: clean up");
 		// set the value for driver
 		this.driver = sfSelenium.getDriver();
-		sfSelenium.CloseSelenium();
+		//sfSelenium.CloseSelenium();
 	}
 	
 }
