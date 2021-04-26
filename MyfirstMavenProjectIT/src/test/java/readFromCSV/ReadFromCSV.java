@@ -61,8 +61,8 @@ public class ReadFromCSV {
 		this.driver.findElement(By.xpath("//input[@value='LOGIN']")).click();
 	}
 	
-	public void captureDetails(String pUsername, String pPassword) {
-		
+	public void captureDetails(String pUsername, String pPassword) throws IOException {
+		navigateToURL(pURL);
 		sfSelenium.populateInputField(By.name("uid"), pUsername);
 		sfSelenium.populateInputField(By.name("password"), pPassword);
 		
