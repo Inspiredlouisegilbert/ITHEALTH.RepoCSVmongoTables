@@ -16,7 +16,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.pdfbox.pdmodel.PDDocument;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -29,7 +28,8 @@ import frameworkclasses.SeleniumFunctions;
 public class StartHere {
 	String pURL = "http://demo.guru99.com/V1/index.php";
 	
-	SeleniumFunctions sfSelenium = new SeleniumFunctions();
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
 	WebDriver driver;
@@ -53,16 +53,7 @@ public class StartHere {
 		return p.getProperty(pPropertyKey);
 	}
 
-	// Get PDF content
-	public String getPDFContent() throws Exception {
-        String pdfurl = "http://www.africau.edu/images/default/sample.pdf";
-        int expectedNoPages = 2;
-        
-        this.driver.get(pdfurl);
-        String pdfContent = sfSelenium.readPDFContent(this.driver.getCurrentUrl(), expectedNoPages);
-        return pdfContent;
-        
-    }
+
 	
 	// Run Test Section
 	@BeforeTest
@@ -72,39 +63,14 @@ public class StartHere {
 		sfSelenium.createTest("Test Started: Read From PDF Report");
 	}
 	
-	@Test
-	public void testLookForTextInPDF() throws Exception {
-		
-		String returnpdfContent = getPDFContent();
-		//System.out.println(returnpdfContent);
-		Assert.assertTrue(returnpdfContent.contains("This is a small demonstration .pdf file"));
-		
 
-	}
 	
 	@Test
 	public void testEnsurePDFdoesNotContain() throws Exception {
-		
-		String returnpdfContent = getPDFContent();
-		//System.out.println(returnpdfContent);
-        Assert.assertFalse(returnpdfContent.contains("Louise"));
+		System.out.println("Test");
 	}
 	
-	@Test
-	public void expectedToFail() throws Exception {
-		
-		String returnpdfContent = getPDFContent();
-		//System.out.println(returnpdfContent);
-        Assert.assertTrue(returnpdfContent.contains("Louise"));
-	}
-	
-	public void PagesEq2() throws Exception {
-		
-		//int pgCount = sfSelenium.getPageCount(PDDocument doc)();
-		String returnpdfContent = getPDFContent();
-		//System.out.println(returnpdfContent);
-        Assert.assertTrue(returnpdfContent.contains("Louise"));
-	}
+
 	
 	@AfterTest
 	public void afterTest() throws Exception {

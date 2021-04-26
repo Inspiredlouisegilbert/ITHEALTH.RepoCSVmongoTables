@@ -18,13 +18,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import frameworkclasses.SeleniumFunctions;
 
 public class GetDataKeywords {
 	
 	// Selenium Functions 
-	SeleniumFunctions sfSelenium = new SeleniumFunctions();
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
 	WebDriver driver;
@@ -164,13 +168,13 @@ public class GetDataKeywords {
 	
 	
 	///// Run tests /////
-	
+	@BeforeTest
 	public void runTestStart () {
 		// set the value for driver
 		this.driver = sfSelenium.getDriver();
 		//start the test
 		// Set up the report
-		sfSelenium.startReport("Payment Gateway Project", "Buy a Teddy");
+		sfSelenium.startReport("Demo", "Get data");
 		sfSelenium.createTest("Start Test");
 		
 		
@@ -514,6 +518,7 @@ public class GetDataKeywords {
 		
 	}
 	
+	@Test
 	public void runTestGetEmailData() throws IOException {
 		int min = 1;
 		int max = 10000;
@@ -530,7 +535,7 @@ public class GetDataKeywords {
 	    //validateMessage(pMessage);
 	}
 	
-	
+	@AfterTest
 	public void cleanup () throws IOException, InterruptedException {
 		sfSelenium.createTest("Run Test: clean up");
 		// set the value for driver

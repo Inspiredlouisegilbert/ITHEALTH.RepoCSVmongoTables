@@ -20,6 +20,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.util.PDFTextStripper;
@@ -49,20 +50,22 @@ public class SeleniumFunctions {
 	ExtentReportClass extReports = new ExtentReportClass();
 	public String gatewayurl;
 	
+	
 	//private ReportingClass reports = new ReportingClass();
 	
 	
 	// Constructor
-	public SeleniumFunctions()  {
+	public SeleniumFunctions(String driverName)  {
 		
-		// Tell Java where the chromedriver.exe sits & Create a new instance of Chrome Driver
-		SetupSelenium();
+		// Tell Java where the chromedriver.exe sits & Create a new instance of the Driver
+		//String driverName;
+		SetupSelenium(driverName);
 		
 	}
 
-	public void SetupSelenium() {
+	public void SetupSelenium(String driverName) {
 		
-		
+			
 		// Properties setup
 		Properties p = new Properties();
 		InputStream is = null;
@@ -78,19 +81,22 @@ public class SeleniumFunctions {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println(p.getProperty("driverdir"));
-		//System.out.println(p.getProperty("gatewayurl"));
+		
+		
+		System.setProperty("webdriver."+driverName+".driver",p.getProperty("driverdir")+driverName+"driver.exe");
 
-		System.setProperty("webdriver.chrome.driver", p.getProperty("driverdir")); 
-		//System.setProperty("webdriver.chrome.driver", p.getProperty("driverdir"));
 		// For Mac
 		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-		
-		// For Window
-				//System.setProperty("webdriver.chrome.driver", "c:\\chromedriver_win32\\chromedriver.exe"); 
-		
-		// Create an instance of ChromeDriver to execute our tests
-		this.driver = new ChromeDriver();	
+
+		// determine which driver to use
+		if (driverName.contains("chrome")) {
+			this.driver = new ChromeDriver();	
+			}
+		else { 
+			this.driver = new FirefoxDriver();
+		}
+			
+
 		
 		// set the implicit wait
 		this.driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);

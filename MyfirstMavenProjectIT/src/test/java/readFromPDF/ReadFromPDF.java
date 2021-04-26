@@ -29,7 +29,8 @@ import frameworkclasses.SeleniumFunctions;
 public class ReadFromPDF {
 	String pURL = "http://demo.guru99.com/V1/index.php";
 	
-	SeleniumFunctions sfSelenium = new SeleniumFunctions();
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
 	WebDriver driver;

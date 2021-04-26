@@ -12,7 +12,8 @@ import frameworkclasses.SeleniumFunctions;
 public class TablesDemoKeywords {
 	
 	// Selenium Functions 
-	SeleniumFunctions sfSelenium = new SeleniumFunctions();
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
 	WebDriver driver;

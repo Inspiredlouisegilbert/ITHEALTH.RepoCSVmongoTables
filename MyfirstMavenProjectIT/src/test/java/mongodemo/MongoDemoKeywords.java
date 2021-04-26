@@ -20,7 +20,8 @@ import com.mongodb.DB;
 public class MongoDemoKeywords {
 	
 	// Selenium Functions 
-	SeleniumFunctions sfSelenium = new SeleniumFunctions();
+	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
 	WebDriver driver;
