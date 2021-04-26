@@ -27,6 +27,7 @@ import frameworkclasses.SeleniumFunctions;
 
 public class ReadData {
 	String pURL = "http://demo.guru99.com/V1/index.php";
+	String email = "f@gmail.com" ;
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
 	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
@@ -59,12 +60,25 @@ public class ReadData {
 		sfSelenium.maximiseBrowserWindow();	
 	}
 	
+
 	//click on directory Link
 	public void linkClick() {
 		sfSelenium.clickLink("here");
 	}
 	
+
+	//Login with email and click submit button
 	
+public void fillDetails(String email) {
+	sfSelenium.populateInputField(By.name("emailid"), email);
+	
+}
+
+public void submitBtn() {
+
+	this.driver.findElement(By.name("btnLogin")).click();
+}
+
 	// Run Test Section
 	@BeforeTest
 	public void beforeClass() throws Exception {
@@ -80,6 +94,8 @@ public class ReadData {
 		System.out.println("Test");
 		nevigateToURL(pURL);
 		linkClick();
+		fillDetails(email);
+		submitBtn();
 	}
 	
 
