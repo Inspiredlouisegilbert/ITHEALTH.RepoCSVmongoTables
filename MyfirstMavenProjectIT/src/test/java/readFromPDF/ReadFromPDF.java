@@ -27,7 +27,9 @@ import frameworkclasses.SeleniumFunctions;
 
 
 public class ReadFromPDF {
-	String pURL = "http://demo.guru99.com/V1/index.php";
+	//String pURL = "http://demo.guru99.com/V1/index.php";
+	//String pURL = "c:\\Users\\LGilbert\\Dropbox (Old)\\My PC (ITLC3ML593)\\Downloads\\UntitledDocument.pdf";
+	//C:\Users\LGilbert\Dropbox (Old)\My PC (ITLC3ML593)\Downloads
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
 	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
@@ -56,11 +58,12 @@ public class ReadFromPDF {
 
 	// Get PDF content
 	public String getPDFContent() throws Exception {
-        String pdfurl = "http://www.africau.edu/images/default/sample.pdf";
-        int expectedNoPages = 2;
+		String pdfurl = "c:\\Users\\LGilbert\\Dropbox (Old)\\My PC (ITLC3ML593)\\Downloads\\UntitledDocument.pdf";
+        int expectedNoPages = 1;
         
         this.driver.get(pdfurl);
         String pdfContent = sfSelenium.readPDFContent(this.driver.getCurrentUrl(), expectedNoPages);
+        System.out.println(pdfContent);
         return pdfContent;
         
     }
@@ -78,9 +81,7 @@ public class ReadFromPDF {
 		
 		String returnpdfContent = getPDFContent();
 		//System.out.println(returnpdfContent);
-		Assert.assertTrue(returnpdfContent.contains("This is a small demonstration .pdf file"));
-		
-
+		Assert.assertTrue(returnpdfContent.contains("LOUISE"));
 	}
 	
 	@Test
@@ -88,7 +89,7 @@ public class ReadFromPDF {
 		
 		String returnpdfContent = getPDFContent();
 		//System.out.println(returnpdfContent);
-        Assert.assertFalse(returnpdfContent.contains("Louise"));
+        Assert.assertFalse(returnpdfContent.contains("Vukile"));
 	}
 	
 	@Test
@@ -99,13 +100,6 @@ public class ReadFromPDF {
         Assert.assertTrue(returnpdfContent.contains("Louise"));
 	}
 	
-	public void PagesEq2() throws Exception {
-		
-		//int pgCount = sfSelenium.getPageCount(PDDocument doc)();
-		String returnpdfContent = getPDFContent();
-		//System.out.println(returnpdfContent);
-        Assert.assertTrue(returnpdfContent.contains("Louise"));
-	}
 	
 	@AfterTest
 	public void afterTest() throws Exception {

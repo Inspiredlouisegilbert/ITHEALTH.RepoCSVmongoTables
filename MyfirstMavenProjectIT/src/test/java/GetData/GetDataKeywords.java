@@ -33,8 +33,8 @@ public class GetDataKeywords {
 	
 	
 
-	
-	//SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	// Here @Sastri
+	// SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 
 	// driver variable
@@ -45,9 +45,6 @@ public class GetDataKeywords {
 	
 
 
-
-	
-
 	// Navigate to demo.guru99.com
 	
 	public void navigateToURL(String pURL) {
@@ -55,7 +52,6 @@ public class GetDataKeywords {
 		sfSelenium.maximiseBrowserWindow();	
 	}
 	
-
 
 	public String getProperties(String pPropertyKey) {
 		
