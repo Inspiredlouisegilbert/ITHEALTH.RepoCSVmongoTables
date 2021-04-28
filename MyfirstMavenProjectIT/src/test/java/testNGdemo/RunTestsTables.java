@@ -19,9 +19,11 @@ public class RunTestsTables {
 
 		
 		@Test
-		public void Test6() throws IOException, InterruptedException {
+		@Parameters ({"val4"})
+		public void Test6(String val4) throws IOException, InterruptedException {
 		
 			System.out.println("test: tabless");
+			System.out.println("this is the tables class" + val4);
 			tbKeywords.tabless();
 		}
 		
