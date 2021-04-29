@@ -83,6 +83,46 @@ public String getTextFromTable(String pCss) {
 	return driver.findElement(By.cssSelector(pCss)).getText();
 	
 }
+public void validateLogin()
+{
+	try   
+	  {    
+	    if(this.driver.findElement(By.xpath("//img[1]")).isDisplayed() )     
+	    {      
+	    	sfSelenium.createTest("Is a Positive test case");
+        	sfSelenium.logScreenShot();
+	    }   
+	    
+	 	
+        else
+        {
+	   		sfSelenium.createTest("Is a Negative test case");
+	       	// wait for the alert
+	       	//waitForAlert(10);
+	       	//handle the alert message
+	       	Alert alert = this.driver.switchTo().alert();
+	   		String sAlertMessage = alert.getText();
+	   		
+	   		
+	   		System.out.println(sAlertMessage);
+	   		Thread.sleep(500);
+	   		
+	   		alert.accept();  
+	   		sfSelenium.doValidation(sAlertMessage, "User is not valid");
+	        	
+        }
+	  } 
+	
+	  catch(Exception e)     
+	  {       
+		  sfSelenium.createTest("Is a Positive test case");
+		  sfSelenium.doValidation("Success Case Failed", "Image not found");
+		  
+	  }       
+	}  
+
+
+
 	// Run Test Section
 	@BeforeTest
 	public void beforeClass() throws Exception {
@@ -93,26 +133,47 @@ public String getTextFromTable(String pCss) {
 	
 
 	
-	@Test
-	public void testOne() throws Exception {
+	@Test (priority =1)
+	public void staticData() throws Exception {
 		System.out.println("Test");
 		nevigateToURL(pURL);
 		linkClick();
 		fillDetails(email,"emailid");
 		submitBtn();
 		
+	}
+	
+	@Test (priority = 2)
+	public void positiveInputData()
+	{
 		String username = getTextFromTable("body > table > tbody > tr:nth-child(4) > td:nth-child(2)");
 		String password = getTextFromTable("body > table > tbody > tr:nth-child(5) > td:nth-child(2)");
 		nevigateToURL(pURL);
 		fillDetails(username,"uid");
 		fillDetails(password,"password");
 		submitBtn();
+		validateLogin();
+		
 	}
 	
-	
+	@Test (priority = 3)
+	public void negativeInputData()
+	{
+		String invalidpassword = "pass";
+		String invalidusername = "username";
+		
+		nevigateToURL(pURL);
+		fillDetails(invalidusername,"uid");
+		fillDetails(invalidpassword,"password");
+		submitBtn();
+		validateLogin();
+		
+	}
+
 	@AfterTest
 	public void afterTest() throws Exception {
 		sfSelenium.CloseSelenium();
+		
 	}
 
 }
