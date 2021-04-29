@@ -24,6 +24,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import frameworkclasses.SeleniumFunctions;
+import readFromCSV.ReadFromCSV;
+
 
 
 public class ReadData {
@@ -31,6 +33,7 @@ public class ReadData {
 	String email = this.generateRandomData();
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
+	
 	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
@@ -84,10 +87,10 @@ public String getTextFromTable(String pCss) {
 	return driver.findElement(By.cssSelector(pCss)).getText();
 	
 }
-public void validateLogin()
+public void validateLogin() throws InterruptedException, IOException
 {
-	try   
-	  {    
+	  
+	      
 	    if(this.driver.findElement(By.xpath("//img[1]")).isDisplayed() )     
 	    {      
 	    	sfSelenium.createTest("Is a Positive test case");
@@ -95,11 +98,11 @@ public void validateLogin()
 	    }   
 	    
 	 	
-        else
+        else 
         {
 	   		sfSelenium.createTest("Is a Negative test case");
 	       	// wait for the alert
-	       	//waitForAlert(10);
+	   		sfSelenium.waitForAlert(10);
 	       	//handle the alert message
 	       	Alert alert = this.driver.switchTo().alert();
 	   		String sAlertMessage = alert.getText();
@@ -110,16 +113,13 @@ public void validateLogin()
 	   		
 	   		alert.accept();  
 	   		sfSelenium.doValidation(sAlertMessage, "User is not valid");
-	        	
+	   		//sfSelenium.doValidation(sAlertMessage, "User NOT VALID!");	
         }
-	  } 
-	
-	  catch(Exception e)     
-	  {       
+	    /*
 		  sfSelenium.createTest("Is a Positive test case");
 		  sfSelenium.doValidation("Success Case Failed", "Image not found");
-		  
-	  }       
+		  */
+	         
 	}  
 
 public String generateRandomData() {
@@ -153,7 +153,7 @@ public String generateRandomData() {
 	}
 	
 	@Test (priority = 2)
-	public void positiveInputData()
+	public void positiveInputData() throws InterruptedException, IOException
 	{
 		String username = getTextFromTable("body > table > tbody > tr:nth-child(4) > td:nth-child(2)");
 		String password = getTextFromTable("body > table > tbody > tr:nth-child(5) > td:nth-child(2)");
@@ -166,7 +166,7 @@ public String generateRandomData() {
 	}
 	
 	@Test (priority = 3)
-	public void negativeInputData()
+	public void negativeInputData() throws InterruptedException, IOException
 	{
 		String invalidpassword = "pass";
 		String invalidusername = "username";
