@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.junit.AfterClass;
 import org.openqa.selenium.Alert;
@@ -27,7 +28,7 @@ import frameworkclasses.SeleniumFunctions;
 
 public class ReadData {
 	String pURL = "http://demo.guru99.com/V1/index.php";
-	String email = "f@gmail.com" ;
+	String email = this.generateRandomData();
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
 	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
@@ -121,7 +122,15 @@ public void validateLogin()
 	  }       
 	}  
 
-
+public String generateRandomData() {
+	String staticEmail = "junaid";
+	String staticDomain= "@gmail.com";		
+	int min= 0;
+	int max = 1000;
+	int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+	
+	return staticEmail+randomNum+staticDomain;
+}
 
 	// Run Test Section
 	@BeforeTest
@@ -169,6 +178,7 @@ public void validateLogin()
 		validateLogin();
 		
 	}
+
 
 	@AfterTest
 	public void afterTest() throws Exception {
