@@ -69,8 +69,8 @@ public class ReadData {
 
 	//Login with email and click submit button
 	
-public void fillDetails(String email) {
-	sfSelenium.populateInputField(By.name("emailid"), email);
+public void fillDetails(String pValue, String pName) {
+	sfSelenium.populateInputField(By.name(pName), pValue);
 	
 }
 
@@ -79,6 +79,10 @@ public void submitBtn() {
 	this.driver.findElement(By.name("btnLogin")).click();
 }
 
+public String getTextFromTable(String pCss) {
+	return driver.findElement(By.cssSelector(pCss)).getText();
+	
+}
 	// Run Test Section
 	@BeforeTest
 	public void beforeClass() throws Exception {
@@ -94,11 +98,17 @@ public void submitBtn() {
 		System.out.println("Test");
 		nevigateToURL(pURL);
 		linkClick();
-		fillDetails(email);
+		fillDetails(email,"emailid");
+		submitBtn();
+		
+		String username = getTextFromTable("body > table > tbody > tr:nth-child(4) > td:nth-child(2)");
+		String password = getTextFromTable("body > table > tbody > tr:nth-child(5) > td:nth-child(2)");
+		nevigateToURL(pURL);
+		fillDetails(username,"uid");
+		fillDetails(password,"password");
 		submitBtn();
 	}
 	
-
 	
 	@AfterTest
 	public void afterTest() throws Exception {
