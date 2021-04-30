@@ -33,7 +33,6 @@ public class ReadData {
 	String email = this.generateRandomData();
 	
 	SeleniumFunctions sfSelenium = new SeleniumFunctions("gecko");
-	
 	//SeleniumFunctions sfSelenium = new SeleniumFunctions("chrome");
 	
 	// driver variable
@@ -70,8 +69,6 @@ public class ReadData {
 		sfSelenium.clickLink("here");
 	}
 	
-
-	//Login with email and click submit button
 	
 public void fillDetails(String pValue, String pName) {
 	sfSelenium.populateInputField(By.name(pName), pValue);
@@ -87,41 +84,40 @@ public String getTextFromTable(String pCss) {
 	return driver.findElement(By.cssSelector(pCss)).getText();
 	
 }
-public void validateLogin() throws InterruptedException, IOException
-{
-	  
-	      
-	    if(this.driver.findElement(By.xpath("//img[1]")).isDisplayed() )     
-	    {      
-	    	sfSelenium.createTest("Is a Positive test case");
-        	sfSelenium.logScreenShot();
-	    }   
-	    
-	 	
-        else 
-        {
-	   		sfSelenium.createTest("Is a Negative test case");
-	       	// wait for the alert
-	   		sfSelenium.waitForAlert(10);
-	       	//handle the alert message
-	       	Alert alert = this.driver.switchTo().alert();
-	   		String sAlertMessage = alert.getText();
-	   		
-	   		
-	   		System.out.println(sAlertMessage);
-	   		Thread.sleep(500);
-	   		
-	   		alert.accept();  
-	   		sfSelenium.doValidation(sAlertMessage, "User is not valid");
-	   		//sfSelenium.doValidation(sAlertMessage, "User NOT VALID!");	
-        }
-	    /*
-		  sfSelenium.createTest("Is a Positive test case");
-		  sfSelenium.doValidation("Success Case Failed", "Image not found");
-		  */
-	         
-	}  
 
+public void validateSuccessLogin() throws InterruptedException, IOException
+{
+	
+	Assert.assertTrue(this.driver.findElement(By.xpath("//img[1]")).isDisplayed());
+	// make the test fail
+	//Assert.assertTrue(this.driver.findElement(By.xpath("//img[1....]")).isDisplayed());
+	         	
+}	    
+	  
+public void validateLoginAlert() throws InterruptedException, IOException
+{
+	
+		// wait for the alert
+   		sfSelenium.waitForAlert(10);
+   		
+       	//handle the alert message
+       	Alert alert = this.driver.switchTo().alert();
+       	
+       	// get the alert button
+   		String sAlertMessage = alert.getText();
+   		
+   		// prints for demo purposes
+   		//System.out.println(sAlertMessage);
+   		//Thread.sleep(500);
+   		
+   		alert.accept();  
+   		
+   		Assert.assertEquals(sAlertMessage, "User is not valid");
+   		// make the test fail
+   		//Assert.assertEquals(sAlertMessage, "...User is not valid");
+
+}	 
+	
 public String generateRandomData() {
 	String staticEmail = "junaid";
 	String staticDomain= "@gmail.com";		
@@ -144,7 +140,7 @@ public String generateRandomData() {
 	
 	@Test (priority =1)
 	public void staticData() throws Exception {
-		System.out.println("Test");
+		//System.out.println("Test");
 		nevigateToURL(pURL);
 		linkClick();
 		fillDetails(email,"emailid");
@@ -161,7 +157,7 @@ public String generateRandomData() {
 		fillDetails(username,"uid");
 		fillDetails(password,"password");
 		submitBtn();
-		validateLogin();
+		validateSuccessLogin();
 		
 	}
 	
@@ -175,10 +171,9 @@ public String generateRandomData() {
 		fillDetails(invalidusername,"uid");
 		fillDetails(invalidpassword,"password");
 		submitBtn();
-		validateLogin();
+		validateLoginAlert();
 		
 	}
-
 
 	@AfterTest
 	public void afterTest() throws Exception {
