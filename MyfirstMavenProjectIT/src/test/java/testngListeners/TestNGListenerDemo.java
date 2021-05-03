@@ -5,7 +5,7 @@ import org.testng.SkipException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(testngListeners.TestNGlisteners.class)
+//@Listeners(testngListeners.TestNGlisteners.class)
 
 public class TestNGListenerDemo {
 	
