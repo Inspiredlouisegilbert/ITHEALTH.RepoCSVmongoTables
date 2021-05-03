@@ -1,56 +1,41 @@
 package restful;
 
-//import io.restassured.RestAssured.*;
-//import io.restassured.http.ContentType;
+
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-//import io.restassured.matcher.ResponseAwareMatcher;
-//import io.restassured.matcher.RestAssuredMatchers.*;
-//import io.restassured.response.ExtractableResponse;
-//import io.restassured.response.Response;
-
-//import static org.testng.Assert.*;
-
-//import org.testng.annotations.*;
-//
-//import java.io.IOException;
-//
-//import org.testng.Assert;
-//import org.hamcrest.Matchers.*;
-
-
 
 
 public class Restful 
 {
-	
+	@Parameters ({"systemUnderTest"})
 	@Test
-    public void extractall() {
+    public void extractall(String systemUnderTest) {
     	
-    	given().when().log().all().get("https://reqres.in/api/users?page=2").then().log().all().extract().response();
+    	given().when().log().all().get(systemUnderTest).then().log().all().extract().response();
     }
 	
-	//@Test
-    public void statusCode() {
+	@Parameters ({"systemUnderTest"})
+	@Test
+    public void statusCode(String systemUnderTest) {
 
     	
     	given()
     	.when()
-    	.get("https://reqres.in/api/users?page=2")
+    	.get(systemUnderTest)
     	.then()
     	.statusCode(200);
 
     }
+	@Parameters ({"systemUnderTest"})
+	@Test
+    public void pageEquals2(String systemUnderTest) {
 
-	//@Test
-    public void pathtest() {
 
-
-    	given().when().get("https://reqres.in/api/users?page=2")
+    	given().when().get(systemUnderTest)
     			.then()
     			.assertThat()
     			.body("page"
