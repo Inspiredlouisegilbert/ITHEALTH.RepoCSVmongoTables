@@ -1,3 +1,4 @@
+
 package testngListeners;
 
 import org.testng.Assert;
@@ -6,7 +7,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 //@Listeners(testngListeners.TestNGlisteners.class)
-
 public class TestNGListenerDemo2 {
 	
 	@Test
@@ -23,9 +23,8 @@ public class TestNGListenerDemo2 {
 	@Test
 	public void test6() {
 		System.out.println("I am in test 6");
-		throw new SkipException("this is a skipped test" );
+		throw new SkipException("this is a skipped test");
 	}
-
 
 }
 

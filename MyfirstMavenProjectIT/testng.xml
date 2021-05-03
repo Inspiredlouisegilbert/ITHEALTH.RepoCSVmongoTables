@@ -3,8 +3,10 @@
 <suite name="Suite" configfailurepolicy="continue">
   <test thread-count="5" name="Test" parallel="classes">
     <classes>
-		<class name="restful.Restful" />
-
+		<class name="testNGdemo.HeaderFooter" />
+		<class name="testNGdemo.RunTestsPaymentGateway"/>
+		<class name="testNGdemo.RunTestsTables"/>
+		<class name="readFromPDF.ReadFromPDF"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

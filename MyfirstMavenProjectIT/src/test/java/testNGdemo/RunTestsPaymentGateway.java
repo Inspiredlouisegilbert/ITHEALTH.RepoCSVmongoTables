@@ -16,8 +16,10 @@ public class RunTestsPaymentGateway {
 	PaymentGatewayKeywords pgKeywords = new PaymentGatewayKeywords();
 
 
-		@Test
-		public void Test1() throws IOException, InterruptedException {
+		@Test (groups= {"SmokeTest"})  
+		@Parameters ({"val3"})
+		public void Test1(String val3) throws IOException, InterruptedException {
+			System.out.println("This is class Payment gateway: "+ val3);
 			System.out.println("test: runTestReadFromFile");
 			pgKeywords.runTestReadFromFile();
 		}
