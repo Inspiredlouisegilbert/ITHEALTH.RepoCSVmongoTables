@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class Restful 
 {
 	@Parameters ({"systemUnderTest"})
-	@Test
+	@Test (groups= {"SmokeTest"})  
     public void extractall(String systemUnderTest) {
     	
     	given().when().log().all().get(systemUnderTest).then().log().all().extract().response();
@@ -38,8 +38,7 @@ public class Restful
     	given().when().get(systemUnderTest)
     			.then()
     			.assertThat()
-    			.body("page"
-    					+ "",equalTo(2));
+    			.body("page",equalTo(2));
 
     }
 

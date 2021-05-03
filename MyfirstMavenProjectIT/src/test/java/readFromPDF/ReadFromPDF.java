@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.pdfbox.pdmodel.PDDocument;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -81,6 +82,7 @@ public class ReadFromPDF {
 		String returnpdfContent = getPDFContent();
 		//System.out.println(returnpdfContent);
         Assert.assertTrue(returnpdfContent.contains("Louise"));
+        Reporter.log("Expected the pdf to contain the word 'Louise'");
 	}
 	
 	
