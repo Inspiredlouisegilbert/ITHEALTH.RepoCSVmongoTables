@@ -1,55 +1,62 @@
 package restful;
 
-import io.restassured.RestAssured.*;
-import io.restassured.http.ContentType;
+//import io.restassured.RestAssured.*;
+//import io.restassured.http.ContentType;
 
 import static io.restassured.RestAssured.given;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import io.restassured.response.Response;
+import static org.hamcrest.Matchers.equalTo;
 
-import static org.testng.Assert.*;
-
-import java.io.IOException;
-
-import org.testng.Assert;
-//import org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
-//import static org.hamcrest.CoreMatchers;
 
-//import com.aventstack.extentreports.gherkin.model.Given;
+//import io.restassured.matcher.ResponseAwareMatcher;
+//import io.restassured.matcher.RestAssuredMatchers.*;
+//import io.restassured.response.ExtractableResponse;
+//import io.restassured.response.Response;
 
-public class Restful {
+//import static org.testng.Assert.*;
+
+//import org.testng.annotations.*;
+//
+//import java.io.IOException;
+//
+//import org.testng.Assert;
+//import org.hamcrest.Matchers.*;
+
+
+
+
+public class Restful 
+{
 	
-
-    @Test
-	public void firstApiTest ()  {
-		System.out.println( "Hello World!" );
-//		Response responsess = get("https://reqres.in/api/users?page=2");
-//		boolean doesContain = responsess.getBody().asString().contains("michael.lawson@reqres.in");
-//		System.out.println(responsess.getBody().asString());
-//		System.out.println(responsess.getStatusCode());
-//		System.out.println(responsess.getStatusLine());	
-//		System.out.println(responsess.time());	
-//		int responseCode = responsess.getStatusCode();
-		//Assert.assertEquals(responseCode, 200);
+	@Test
+    public void extractall() {
+    	
+    	given().when().log().all().get("https://reqres.in/api/users?page=2").then().log().all().extract().response();
+    }
 	
-		//Assert.assertTrue(doesContain);
-		
-		//https://bugs.eclipse.org/bugs/show_bug.cgi?id=535043
-		//Response responsess = given().when().log().all().get("https://reqres.in/api/users?page=2").then().log().all().extract().response();
+	//@Test
+    public void statusCode() {
 
-		//.setContentType(ContentType.JSON)
-		
+    	
+    	given()
+    	.when()
+    	.get("https://reqres.in/api/users?page=2")
+    	.then()
+    	.statusCode(200);
 
-//		RestAssured.
-					given().
-						get("https://reqres.in/api/users?page=2").	
-					then().
-						statusCode(200)
-						.log().all();//.body("kk", "llk");//.
-					//body("page", equals(2));
-		
+    }
 
-	}
+	//@Test
+    public void pathtest() {
 
+
+    	given().when().get("https://reqres.in/api/users?page=2")
+    			.then()
+    			.assertThat()
+    			.body("page"
+    					+ "",equalTo(2));
+
+    }
+
+	
 }
