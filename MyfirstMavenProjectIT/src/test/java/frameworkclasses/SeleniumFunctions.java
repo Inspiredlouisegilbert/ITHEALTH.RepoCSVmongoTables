@@ -21,7 +21,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.pdfbox.pdmodel.PDDocument;
 import org.pdfbox.util.PDFTextStripper;
 import org.testng.Assert;
@@ -105,6 +107,11 @@ public class SeleniumFunctions {
 		
 	}
 	
+	//wait 
+	public void waitForAlert(int elementWait) {
+		WebDriverWait wait = new WebDriverWait(this.driver,elementWait);
+    	wait.until(ExpectedConditions.alertIsPresent());
+	}
 
 
 	public void startReport(String sReportName, String sTitle) {
