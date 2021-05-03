@@ -37,24 +37,7 @@ public class ReadFromPDF {
 	// driver variable
 	WebDriver driver;
 	
-	public String getProperties(String pPropertyKey) {
-		// Properties setup
-				Properties p = new Properties();
-				InputStream is = null;
-				try {
-					is = new FileInputStream("dataConfig.properties");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					p.load(is);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		return p.getProperty(pPropertyKey);
-	}
+
 
 	// Get PDF content
 	public String getPDFContent() throws Exception {
@@ -63,7 +46,7 @@ public class ReadFromPDF {
         
         this.driver.get(pdfurl);
         String pdfContent = sfSelenium.readPDFContent(this.driver.getCurrentUrl(), expectedNoPages);
-        System.out.println(pdfContent);
+        //System.out.println(pdfContent);
         return pdfContent;
         
     }
