@@ -25,10 +25,19 @@ public class Restful
 	@Parameters ({"systemUnderTest"})
 	//@Test (groups= {"Include"})
 	//@Test (groups= {"SmokeTest"})  
-	//@Test
+	@Test
     public void extractall(String systemUnderTest) {
     	
-    	given().when().log().all().get(systemUnderTest).then().log().all().extract().response();
+    	given()
+    		.when()
+    		//.log()
+    		//.all()
+    		.get(systemUnderTest)
+    		.then()
+    		.log()
+    		.all()
+    		.extract()
+    		.response();
     }
 	
 	@Parameters ({"systemUnderTest"})
@@ -70,7 +79,7 @@ public class Restful
 	
 	@Parameters ({"systemUnderTest"})
 	@Test (groups= {"Include"})
-    public void sumIds(String systemUnderTest) {
+    public void emailValidation(String systemUnderTest) {
 
 
     	given().when().get(systemUnderTest)

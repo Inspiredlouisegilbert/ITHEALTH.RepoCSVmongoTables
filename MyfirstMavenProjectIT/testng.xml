@@ -20,6 +20,7 @@
   <!--<test thread-count="5" name="Test">-->
     <packages>
       <package name="restful"/>
+      <package name="testngListeners"/>
     </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
