@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import frameworkclasses.SeleniumFunctions;
 
@@ -20,7 +21,8 @@ public class TablesDemoKeywords {
 	// Set URL
 	
 	
-	String pURL = "http://demo.guru99.com/test/table.html";
+	//String pURL = "http://demo.guru99.com/test/table.html";
+	String pURL = "http://demo.guru99.com/test/web-table-element.php";
 	
 	// Navigate to demo.guru99.com
 	public void navigateToURL(String pURL) {
@@ -41,6 +43,7 @@ public class TablesDemoKeywords {
 	}
 	
 	public void tabless() throws IOException {
+		
 		sfSelenium.createTest("Run Test: Tables");
 		navigateToURL(pURL);
 		String tablexpath = "//table/tbody";
@@ -55,13 +58,15 @@ public class TablesDemoKeywords {
 		System.out.println("Total Number of colums in row 1: "+TotalColsList.size());
 		
 		// Look at field values
-		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
-		System.out.println("Field value for row 1 column 1: "+ ToGetFieldValues.getText());
+		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
+		//System.out.println("Field value for row 1 column 1: "+ ToGetFieldValues.getText());
+		System.out.println("The value of the column is: " + ToGetFieldValues.getText());
 		
-		
+		//Assert.assertEquals(expected, actual)
 		
 		sfSelenium.logScreenShot();	
 	}
+
 	   
 	public void cleanup () throws IOException, InterruptedException {
 		sfSelenium.createTest("Run Test: clean up");
