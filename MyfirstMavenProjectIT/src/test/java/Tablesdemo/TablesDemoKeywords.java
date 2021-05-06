@@ -50,7 +50,8 @@ public class TablesDemoKeywords {
 		System.out.println("Total number of Rows in the table are : "+ TotalRowsList.size());
 		
 		// Look at columns
-		WebElement ToGetColumns = driver.findElement(By.xpath("//tbody/tr[3]"));
+		WebElement ToGetColumns = driver.findElement(By.xpath("//tbody/tr[1]"));
+		System.out.println(ToGetColumns.getText());
 		List<WebElement> TotalColsList = ToGetColumns.findElements(By.tagName("td"));
 		System.out.println("Total Number of colums in row 1: "+TotalColsList.size());
 		

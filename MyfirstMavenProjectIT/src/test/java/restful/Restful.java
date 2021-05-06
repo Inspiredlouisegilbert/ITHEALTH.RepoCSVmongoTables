@@ -117,8 +117,8 @@ public class Restful
 
 
 	@Parameters ({"systemUnderTest"})
-	@Test (groups= {"SmokeTest"})
-	//@Test (groups= {"Include"})  
+	//@Test (groups= {"SmokeTest"})
+	@Test (groups= {"Include"})  
     public void getHeaders(String systemUnderTest) {
 
     	System.out.println(given().when().get(systemUnderTest).then().extract().headers());
@@ -138,7 +138,7 @@ public class Restful
 		}
 	
 	@Parameters ({"systemUnderTestGuru"})
-	//@Test (groups= {"Include"})  
+	@Test (groups= {"Include"})  
 	//@Test 
 	public static void getResponseStatus(String systemUnderTestGuru){
 		   //int statusCode= 
@@ -149,9 +149,9 @@ public class Restful
 		           .then()
 		           //.assertThat()
 		           //.statusCode(200)
-		           //.log()
-		    		//.all()
-		    		.body("message.ErrorMsg:",equalTo("Login Credentials Incorrect"));
+		           .log()
+		    		.all()
+		    		//.body("message.ErrorMsg:",equalTo("Login Credentials Incorrect"));
 		    		;
 				   //message["ErrorMsg:"]
 		
