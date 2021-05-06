@@ -42,11 +42,6 @@ public class PaymentGatewayKeywords {
 		sfSelenium.maximiseBrowserWindow();	
 	}
 	
-	
-	
-	
-	
-	
 
 	public String getProperties(String pPropertyKey) {
 		// Properties setup
