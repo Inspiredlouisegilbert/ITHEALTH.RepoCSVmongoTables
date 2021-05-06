@@ -67,16 +67,24 @@ public class TablesDemoKeywords {
 		// Look at field values
 		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr["+count+"]/td[5]"));
 		//System.out.println("Field value for row 1 column 1: "+ ToGetFieldValues.getText());
-		System.out.println("The value of the column is: " + ToGetFieldValues.getText());
-		
+		//System.out.println("The value of the column is: " + ToGetFieldValues.getText());
+		float f=Float.parseFloat(ToGetFieldValues.getText().substring(2));
+		String sLine = "";
+		if ( f > 4 ) {
+			for (int j =0; j < TotalColsList.size();j++) {
+				WebElement WriteToFile = driver.findElement(By.xpath("//tbody/tr["+count+"]/td["+j+"]"));
+				sLine += WriteToFile.getText();
 		}
-		
+			System.out.println("The value of the columns  that are greater than 4 are: " + sLine);
+
+		}
+		}
 		//Assert.assertEquals(expected, actual)
 		
 		sfSelenium.logScreenShot();	
 	}
 
-	   
+
 	public void cleanup () throws IOException, InterruptedException {
 		sfSelenium.createTest("Run Test: clean up");
 		// set the value for driver
