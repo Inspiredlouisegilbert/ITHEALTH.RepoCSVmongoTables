@@ -4,9 +4,11 @@
 	<groups>  
 	<run>  
 	<exclude name="SmokeTest"/>  
-	<!--<include name="Include"/> --> 
+	<include name="Include"/>
 	</run>  
 	</groups> 
+<!-- <parameter name="systemUnderTest" value="https://reqres.in/api/users?page=2" />-->
+<!-- <parameter name="systemUnderTest" value="http://www.acme.com" />-->
 <parameter name="systemUnderTest" value="https://reqres.in/api/users?page=2" />
 <parameter name="systemUnderTestGuru" value="http://demo.guru99.com/V4/sinkministatement.php" />
 <parameter name="systemUnderTestAcme" value="http://www.acme.com" />
