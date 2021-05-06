@@ -53,14 +53,23 @@ public class TablesDemoKeywords {
 		System.out.println("Total number of Rows in the table are : "+ TotalRowsList.size());
 		
 		// Look at columns
-		WebElement ToGetColumns = driver.findElement(By.xpath("//tbody/tr[3]"));
-		List<WebElement> TotalColsList = ToGetColumns.findElements(By.tagName("td"));
-		System.out.println("Total Number of colums in row 1: "+TotalColsList.size());
+				WebElement ToGetColumns = driver.findElement(By.xpath("//tbody/tr[3]"));
+				List<WebElement> TotalColsList = ToGetColumns.findElements(By.tagName("td"));
+				System.out.println("Total Number of colums in row 1: "+TotalColsList.size());
+				WebElement ColumnHeader = driver.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/thead/tr/th[5]"));
+		System.out.println("Column name is: "+ ColumnHeader.getText() );
+		//*[@id="leftcontainer"]/table/thead/tr/th[5]
+		//tbody/tr/th[5]
+		int count = 0;
+		for (int i = 0; i < TotalRowsList.size()-1; i++) {
+			count++;
 		
 		// Look at field values
-		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
+		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr["+count+"]/td[5]"));
 		//System.out.println("Field value for row 1 column 1: "+ ToGetFieldValues.getText());
 		System.out.println("The value of the column is: " + ToGetFieldValues.getText());
+		
+		}
 		
 		//Assert.assertEquals(expected, actual)
 		
