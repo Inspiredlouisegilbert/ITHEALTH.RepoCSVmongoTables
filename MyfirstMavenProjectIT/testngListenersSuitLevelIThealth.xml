@@ -4,15 +4,9 @@
 	<groups>  
 	<run>  
 	<exclude name="SmokeTest"/>  
-	<include name="Include"/>
 	</run>  
 	</groups> 
-<!-- <parameter name="systemUnderTest" value="https://reqres.in/api/users?page=2" />-->
-<!-- <parameter name="systemUnderTest" value="http://www.acme.com" />-->
 <parameter name="systemUnderTest" value="https://reqres.in/api/users?page=2" />
-<parameter name="systemUnderTestGuru" value="http://demo.guru99.com/V4/sinkministatement.php" />
-<parameter name="systemUnderTestAcme" value="http://www.acme.com" />
-
 <listeners>
 	<listener 
 		class-name="testngListeners.TestNGlisteners">
@@ -21,8 +15,9 @@
   <test name="Regression Test">
   <!--<test thread-count="5" name="Test">-->
     <packages>
-      <package name="restful"/>
       <package name="testngListeners"/>
+      <package name="readFromPDF"/>
+      <package name="restful"/>
     </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

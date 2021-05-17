@@ -55,6 +55,7 @@ public class TablesDemoKeywords {
 		System.out.println("Total number of Rows in the table are : "+ TotalRowsList.size());
 		
 		// Look at columns
+
 				WebElement ToGetColumns = driver.findElement(By.xpath("//tbody/tr[3]"));
 				List<WebElement> TotalColsList = ToGetColumns.findElements(By.tagName("td"));
 				System.out.println("Total Number of colums in row 1: "+TotalColsList.size());
@@ -65,6 +66,7 @@ public class TablesDemoKeywords {
 		int count = 0;
 		for (int i = 0; i < TotalRowsList.size()-1; i++) {
 			count++;
+
 		
 		// Look at field values
 		WebElement ToGetFieldValues = driver.findElement(By.xpath("//tbody/tr["+count+"]/td[5]"));

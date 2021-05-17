@@ -15,7 +15,7 @@ public class TestNGListenerDemo {
 	
 	@Test
 	public void test2() {
-		System.out.println("I am in test 2");
+		System.out.println("I am in test 2......");
 		Assert.assertTrue(false);
 	}
 	
