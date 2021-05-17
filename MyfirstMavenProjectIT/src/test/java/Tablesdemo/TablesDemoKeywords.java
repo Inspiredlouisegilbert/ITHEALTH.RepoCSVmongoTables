@@ -71,9 +71,9 @@ public class TablesDemoKeywords {
 		float f=Float.parseFloat(ToGetFieldValues.getText().substring(2));
 		String sLine = "";
 		if ( f > 4 ) {
-			for (int j =0; j < TotalColsList.size();j++) {
+			for (int j = 1; j <= TotalColsList.size();j++) {
 				WebElement WriteToFile = driver.findElement(By.xpath("//tbody/tr["+count+"]/td["+j+"]"));
-				sLine += WriteToFile.getText();
+				sLine += WriteToFile.getText() + " ";
 		}
 			System.out.println("The value of the columns  that are greater than 4 are: " + sLine);
 
