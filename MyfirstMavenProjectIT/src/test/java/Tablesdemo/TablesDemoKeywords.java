@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import frameworkclasses.SeleniumFunctions;
-import writeToFile.WriteTableData;
 
 public class TablesDemoKeywords {
 	
