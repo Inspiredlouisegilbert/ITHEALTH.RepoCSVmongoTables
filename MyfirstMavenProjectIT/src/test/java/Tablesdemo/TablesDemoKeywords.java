@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import frameworkclasses.SeleniumFunctions;
+import writeToFile.WriteTableData;
 
 public class TablesDemoKeywords {
 	
@@ -20,6 +21,7 @@ public class TablesDemoKeywords {
 	WebDriver driver;
 	// Set URL
 	
+	WriteTableData sTableData = new WriteTableData();
 	
 	//String pURL = "http://demo.guru99.com/test/table.html";
 	String pURL = "http://demo.guru99.com/test/web-table-element.php";
@@ -42,7 +44,7 @@ public class TablesDemoKeywords {
 		sfSelenium.createTest("Start Test");
 	}
 	
-	public void tabless() throws IOException {
+	public void tabless() throws IOException, InterruptedException {
 		
 		sfSelenium.createTest("Run Test: Tables");
 		navigateToURL(pURL);
@@ -76,6 +78,7 @@ public class TablesDemoKeywords {
 				sLine += WriteToFile.getText() + " ";
 		}
 			System.out.println("The value of the columns  that are greater than 4 are: " + sLine);
+			sTableData.writeToFile(sLine);
 
 		}
 		}
