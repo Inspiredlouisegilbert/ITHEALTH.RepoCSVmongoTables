@@ -103,7 +103,6 @@ public class LandingPageTest {
          
         //Instantiate SignInPage class object
         SignInPage inPage = new SignInPage();
-
         inPage.cleanUp();
     }     
 }

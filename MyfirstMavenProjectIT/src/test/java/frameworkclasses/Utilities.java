@@ -44,7 +44,8 @@ public class Utilities extends BasePage {
 	                
 	       // Update the pdf report
 	       Reporter.log("<a href='"+ DestFile.getAbsolutePath() + "'> <img src='"+ DestFile.getAbsolutePath() + 
-	    		   "' height='200' width='200'/> </a>");              
+	    		   "' height='200' width='200'/> </a>");    
+	       
 	    }
 		
 		public String timereturn() {
