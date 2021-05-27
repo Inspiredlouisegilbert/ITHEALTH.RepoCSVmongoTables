@@ -35,7 +35,9 @@ public class Utilities extends BasePage {
 	       
 
 	       //Move image file to new destination
-	       File DestFile=new File(fileWithPath);
+	       //File DestFile=new File(fileWithPath);
+	       File DestFile=new File("target//"+"surefire-reports-" + getAppConfigProperties("build.timestamp") +"//images//"+ fileWithPath);
+
 
 	       //Copy file at destination
 	       FileUtils.copyFile(SrcFile, DestFile);
@@ -44,6 +46,35 @@ public class Utilities extends BasePage {
 	       Reporter.log("<a href='"+ DestFile.getAbsolutePath() + "'> <img src='"+ DestFile.getAbsolutePath() + 
 	    		   "' height='200' width='200'/> </a>");              
 	    }
+		
+		public String timereturn() {
+			
+		    LocalDateTime now = LocalDateTime.now(); 
+		    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");  
+		    
+		    return dtf.format(now);
+		    		//System.out.println(dtf.format(now));  
+		}
+		
+		public String getAppConfigProperties(String propertyName) {
+			// Properties setup
+			Properties p = new Properties();
+			InputStream is = null;
+			try {
+				is = new FileInputStream(".\\target\\app.properties");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				p.load(is);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return p.getProperty(propertyName);
+		}
 		
 		
 		

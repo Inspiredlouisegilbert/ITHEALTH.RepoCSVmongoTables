@@ -16,27 +16,23 @@ import org.testng.ITestResult;
 import com.mongodb.MapReduceCommand.OutputType;
 
 import frameworkclasses.BasePage;
-import frameworkclasses.DriverSetup;
 import pages.LandingPage;
 import pages.SignInPage;
 import frameworkclasses.Utilities;
 
 
-
-
-
 public class TestNGlisteners extends BasePage implements ITestListener 
 {
-	Utilities inScreen = new Utilities();
+	Utilities uts = new Utilities();
 	
-	public String timereturn() {
-		
-	    LocalDateTime now = LocalDateTime.now(); 
-	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");  
-	    
-	    return dtf.format(now);
-	    		//System.out.println(dtf.format(now));  
-	}
+//	public String timereturn() {
+//		
+//	    LocalDateTime now = LocalDateTime.now(); 
+//	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");  
+//	    
+//	    return dtf.format(now);
+//	    		//System.out.println(dtf.format(now));  
+//	}
 
 	
 	public void onTestStart(ITestResult result) {
@@ -45,7 +41,8 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		System.out.println("****** Test started: " + result.getName());
 		
 		try {
-			inScreen.takeSnapShot("c://tmp//onTestStart"+timereturn()+".png");
+			
+			uts.takeSnapShot("onTestStart"+uts.timereturn()+".png");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +55,7 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		// TODO Auto-generated method stub
 		System.out.println("****** Test Success: " + result.getName());
 		try {
-			inScreen.takeSnapShot("c://tmp//onTestSuccess"+timereturn()+".png");
+			uts.takeSnapShot("onTestSuccess"+uts.timereturn()+".png");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +69,7 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		System.out.println("****** Test Failure: " + result.getName());
 		//onTestFailure(result);
 		try {
-			inScreen.takeSnapShot("c://tmp//onTestFailure"+timereturn()+".png");
+			uts.takeSnapShot("onTestFailure"+uts.timereturn()+".png");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,7 +95,7 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		// TODO Auto-generated method stub
 		System.out.println("****** onStart: ");
 		try {
-			inScreen.takeSnapShot("c://tmp//onStart.png"+timereturn()+".png");
+			uts.takeSnapShot("onStart"+uts.timereturn()+".png");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,7 +107,7 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		// TODO Auto-generated method stub
 		System.out.println("****** onFinish: ");
 		try {
-			inScreen.takeSnapShot("c://tmp//onFinish.png");
+			uts.takeSnapShot("onFinish"+uts.timereturn()+".png");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
