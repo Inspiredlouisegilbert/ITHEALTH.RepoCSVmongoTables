@@ -68,7 +68,7 @@ public class BasePage {
 		Properties p = new Properties();
 		InputStream is = null;
 		try {
-			is = new FileInputStream("config.properties");
+			is = new FileInputStream("assignment.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
