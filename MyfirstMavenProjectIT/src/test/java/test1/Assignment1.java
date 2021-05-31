@@ -61,7 +61,7 @@ public class Assignment1 {
 	public void testAlert() {
 		String ActualAlert= addCustomer.getAlert();
 		
-		String ExpectedAlert = "";
+		String ExpectedAlert = "please fill all fields";
 
 		 Reporter.log("expected ------------------"+ExpectedAlert);
 	        Reporter.log("actual --------------------"+ActualAlert);

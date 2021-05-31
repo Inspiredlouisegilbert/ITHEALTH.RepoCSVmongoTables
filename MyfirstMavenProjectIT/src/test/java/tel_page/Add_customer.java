@@ -25,7 +25,7 @@ public class Add_customer extends BasePage{
 	
 	public void clickDone() {
 		waitForClick(10, By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//label[.='Done']"));
-		driver.findElement(By.xpath("//input[@id='done']")).click();
+		driver.findElement(By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//label[.='Done']")).click();
 	}
 	public void waitForElement(int elementWait,By pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
@@ -60,7 +60,7 @@ public class Add_customer extends BasePage{
 		
 		driver.findElement(By.xpath("// input [@id='telephoneno']")).sendKeys(pNum);
 		
-		driver.findElement(By.xpath("// input [@id = 'submit']")).click();
+		driver.findElement(By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//ul[@class='actions']//input[@name='submit']")).click();
 		
 		try {
 			waitForAlert(10);
