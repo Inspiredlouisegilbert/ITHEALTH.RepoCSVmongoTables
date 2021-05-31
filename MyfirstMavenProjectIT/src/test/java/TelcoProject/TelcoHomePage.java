@@ -12,8 +12,8 @@ public class TelcoHomePage extends BasePage {
 	
 			
 		public void clickAddCustomer() {
-		
-		driver.findElement(By.xpath("//body/section[@id='one']/div[1]/div[1]/div[1]/h3[1]/a[1]")).click();
+			
+		driver.findElement(By.xpath("//section[@id='one']/div/div[@class='flex=item left']//a[@href='addcustomer.php")).click();
 		} 
 
 	
