@@ -9,7 +9,7 @@
 <test name="ChromeTest">
 <parameter name="xyz" value="some text from the testng xml file" />
 <classes>
-	<class name="test1.Assignment1"/>
+	<class name="TelcoProject.Assignment1"/>
 </classes>
 </test>
 </suite>
