@@ -1,11 +1,12 @@
 package TelcoProject;
 import org.testng.annotations.*;
+
+import pages.SignInPage;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
 
 
 
@@ -20,7 +21,7 @@ public class Assignment1 {
 	public void testHeader1() {
 		home.clickAddCustomer();
 		String ActualHeader1= customer.getheader1(By.xpath("//span[@id='header']//a[@href='index.html']"));
-		String Expectedh1= "Guru 99 Telcom";
+		String Expectedh1= "Guru99 telecom";
 		customer.clickDoneBtn();
 
 		
@@ -67,5 +68,12 @@ public class Assignment1 {
 	        Reporter.log("actual --------------------"+ActualAlert);
 	        Assert.assertEquals(ActualAlert, ExpectedAlert);
 	
+	       
+	        
 	}
+	@AfterSuite
+    public void cleanup() {
+         
+        home.cleanUp();
+    } 
 }

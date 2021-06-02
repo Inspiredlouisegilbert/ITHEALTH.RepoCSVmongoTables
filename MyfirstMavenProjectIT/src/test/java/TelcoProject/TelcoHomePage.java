@@ -17,7 +17,9 @@ public class TelcoHomePage extends BasePage {
 		} 
 
 	
-
+		public void cleanUp() {
+			driver.quit();
+		}
 
 
 	
