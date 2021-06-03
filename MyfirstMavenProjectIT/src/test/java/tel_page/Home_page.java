@@ -8,5 +8,9 @@ public class Home_page extends BasePage {
 	public void clickCustomer() {
 		driver.findElement(By.xpath("//section[@id='one']/div/div[@class='flex-item left']//a[@href='addcustomer.php']")).click();
 	}
-
+	
+	public void clickAddTariff() {
+		driver.findElement(By.xpath("//section[@id='one']/div/div[@class='flex-item left']//a[@href='assigntariffplantocustomer.php']")).click();
+	}
+	
 }
