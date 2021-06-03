@@ -16,6 +16,15 @@ public class TelcoHomePage extends BasePage {
 			driver.findElement(By.xpath("//section[@id='one']/div/div[@class='flex-item left']//a[@href='addcustomer.php']")).click();
 		} 
 
+		
+public void clickAddTariffPlan() {
+			
+			
+	
+	driver.findElement(By.xpath("//section[@id='one']/div/div[@class='flex-item left']//a[@href='assigntariffplantocustomer.php']")).click();
+		} 
+	
+		
 	
 		public void cleanUp() {
 			driver.quit();

@@ -52,8 +52,14 @@ public class AddCustomer extends BasePage{
 		
 		driver.findElement(By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//textarea[@id='message']")).sendKeys(pMessage);
 		
-		waitForElement(10, By.xpath("// label [@id= 'message3']"));
-		msgWarning = driver.findElement(By.xpath("// label [@id= 'message3']")).getText();
+		try {
+            waitForElement(10, By.xpath("// label [@id= 'message3']"));
+            msgWarning = driver.findElement(By.xpath("// label [@id= 'message3']")).getText();           
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("No message");
+        }
+ 
 		
 		driver.findElement(By.xpath("// input [@id='telephoneno']")).sendKeys(pNum);
 		
