@@ -16,7 +16,6 @@ public class Assignment1 {
 	
 	AddCustomer customer = new AddCustomer();
 
-	AddTariffPlan plan = new AddTariffPlan();
 
 	//Assignement 1
 	//This  test case checks the header of the page if its correct Guru99 telecom
@@ -45,46 +44,45 @@ public class Assignment1 {
 	        Assert.assertEquals(ActualHeader2, Expectedh2); 
 
 	}
-	//This test case fill in positive data into the form 
-	@Test(priority = 2)
-	public void testlabel() {
+	//This test case fill in positive data into the form(invalid data)
+
+
+@Test(priority = 2)
+public void testlabel1() {
+	customer.filldata("faith","gangxa", "gangxaf@gmail.com", "some text!!!!!!", "01236");
+	String Actuallabel= customer.getMessage();
+	
+	String Expectedlabel = "Special characters are not allowed";
+	
+	 Reporter.log("expected ------------------"+Expectedlabel);
+        Reporter.log("actual --------------------"+Actuallabel);
+        Assert.assertEquals(Actuallabel, Expectedlabel); 
+
+}
+
+@Test(priority = 3)
+public void testAlert() {
+	String ActualAlert= customer.getAlert();
+	
+	String ExpectedAlert = "please fill all fields";
+
+	 Reporter.log("expected ------------------"+ExpectedAlert);
+        Reporter.log("actual --------------------"+ActualAlert);
+        Assert.assertEquals(ActualAlert, ExpectedAlert);
+
+}
+	
+	
+	//This test case fill in positive data into the form(valid data)
+	@Test(priority = 4)
+	public void testlabel2() {
+    customer.goToHomePage();	
+	home.clickAddCustomer();
+	{
 		customer.filldata("faith","mayiyana", "faithm@gmail.com", "some text", "011");
 	}
-	//Assignment 2
-	//This  test case checks the header of the page if its correct Guru99 telecom
-	@Test(priority = 4)
-	public void testHeader3() {
-		plan.goToHomePage();
-		home.clickAddTariffPlan();
-		String ActualHeader3= plan.getheader2(By.xpath("//span[@id='header']//a[@href='index.html']"));
-		String Expectedh3= "Guru99 telecom";
-
-		
-		 Reporter.log("expected ------------------"+Expectedh3);
-	        Reporter.log("actual --------------------"+ActualHeader3);
-	        Assert.assertEquals(ActualHeader3, Expectedh3 ); 
-
-	}
-
-	//This checks the header of Tariff Plan 
-	    	@Test(priority = 6)
-	    	public void testHeader4() {	
-	    		
-	    		String ActualHeader4= plan.getheader2(By.xpath("//section[@id='main']/div[@class='inner']//h1[.='Add Tariff Plan to Customer']"));
-	    		String Expectedh4= "Add Tariff Plan to Customer";
-	    		
-	    		
-	    		 Reporter.log("expected ------------------"+Expectedh4);
-	    	        Reporter.log("actual --------------------"+ActualHeader4);
-	    	        Assert.assertEquals(ActualHeader4, Expectedh4); 
-	    	}
-    //This test case fill in the correct customer id on the form
-	    	    	@Test(priority = 7)
-	    	    	public void testdetail() {
-	    	    		plan.filldetail("760133");
-	    	    		
-	}        
- 	             
+   
+	}             
 	
 	@AfterSuite
     public void cleanup() {

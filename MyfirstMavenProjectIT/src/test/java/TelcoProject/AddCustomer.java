@@ -81,5 +81,12 @@ public class AddCustomer extends BasePage{
 	public String getAlert() {
 		return AlertText;
 }
+
+
+	public void goToHomePage() {
+		waitForClick(10, By.xpath("//span[@id='header']//a[@href='index.html']"));
+		driver.findElement(By.xpath("//span[@id='header']//a[@href='index.html']")).click();
+		
+	}
 	
 }
