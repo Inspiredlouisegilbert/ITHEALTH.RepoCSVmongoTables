@@ -6,10 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Parameters;
 
@@ -18,6 +21,18 @@ public class BasePage {
     
     //Declare the WebDriver
     public static WebDriver driver;
+    
+    public void waitForElement(int elementWait,By pLocator) {
+        WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(pLocator));
+       
+    }
+   
+    public void waitForClick(int elementWait,By pLocator) {
+        WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
+        wait.until(ExpectedConditions.elementToBeClickable(pLocator));
+       
+    }
     
     //constructor of base class
     public BasePage() {
