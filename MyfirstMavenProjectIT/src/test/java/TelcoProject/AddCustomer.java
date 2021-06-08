@@ -10,6 +10,7 @@ public class AddCustomer extends BasePage{
 
 	String msgWarning ="";
 	String AlertText = "";
+	String customerNO = "";
 
 	
 	public String getheader1(By pLocator) {
@@ -84,8 +85,29 @@ public class AddCustomer extends BasePage{
 
 
 	public void goToHomePage() {
-		waitForClick(10, By.xpath("//span[@id='header']//a[@href='index.html']"));
+		waitForClick(30, By.xpath("//span[@id='header']//a[@href='index.html']"));
 		driver.findElement(By.xpath("//span[@id='header']//a[@href='index.html']")).click();
+		
+	}
+
+	
+	
+public void CustomerNO() {
+		
+		waitForElement(10,By.xpath("//tr[1]/td[2]"));
+		customerNO = driver.findElement(By.xpath("//tr[1]/td[2]")).getText();
+		
+	}
+
+	public String getId() {
+		
+		return customerNO;
+	}
+
+
+	public void clickPending() {
+		waitForClick(30, By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//label[.='Pending']"));
+		driver.findElement(By.xpath("//section[@id='main']//form[@action='insertcustomer.php']/div[@class='row uniform']//label[.='Pending']")).click();
 		
 	}
 	
