@@ -1,4 +1,4 @@
-package CovidRelatedTests;
+package covidRelatedTests;
 
 import CovidPage.Introduction;
 import CovidPage.PatientDetails;
