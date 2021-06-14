@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 
 public class Assignment1 {
    
-	Home_page home = new Home_page();
+	Home_page home = new Home_page(); 
 	Add_customer addCustomer = new Add_customer();
 	
 	@Test(priority = 0)

@@ -72,12 +72,12 @@ public class Assignment2 {
 	        Reporter.log("actual --------------------"+expet);
 	        Assert.assertEquals(active, expet ); 
 		
-	}
+	} 
 	@Test(priority = 3)
 public void checkPendingCus() {
 		pn.getFromprop("systemUnderTest");
 		home.clickCustomer();
-        addCustomer.clickPending();
+        addCustomer.clickPending(); 
         addCustomer.filldata("junaid","fred", "junaid@gmail.com", "some text", "012");
         customerID.CustomerID();
 	   
