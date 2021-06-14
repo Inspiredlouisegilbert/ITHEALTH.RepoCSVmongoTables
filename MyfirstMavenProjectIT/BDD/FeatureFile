@@ -1,0 +1,139 @@
+@EndToEn*Regression
+Feature
+			As a patient I would like to check my covid-19 symptoms anonymously and reliably online
+			
+	Background:	
+		Given	User open browsed to Symptomate
+		
+Scenario Outline :	The patient will capture symptomps on the page ; the diagnosis will recommend the next 
+	step - which is to go to hospital.
+	
+		WHEN    User selects COVID-19 checkup button
+		THEN	Introduction page is displayed with an anonymou message 
+		AND     the user will receive an Interview ID
+		WHEN	User clicks on Next button
+		AND	  	User accepts the T&Cs 
+		AND		Press the Next button
+		AND 	Select the Male gender
+		AND		User selects the 70 age 
+		AND     Press Next BUTTON  
+		AND    	Select Current cancer and Obesity as the options
+		AND     Press Next Button 
+		AND    	Leave page as is and Press Next button
+		AND    	Symptoms page, select All to be yes
+		AND    	Press the Next
+		AND    	Select Headache and sore Throat
+		AND		Press next button
+		AND    	Select the 38.1 till 40 degrees
+		AND 	Press Next Button
+	    And	   	Select yes for heavy breathing 
+		And	    Select yes for trouble with speaking due to heavy breathing problems
+		and	    Select yes for daily activities making you feel dizzy
+		AND    	Click yes for feeling confusing or overly sleepy 
+		THEN    System done analysing data, 
+		AND   	the user will be informed to go to a hospital 
+		
+
+
+Examples:	
+		|age	|Gender	
+		|70		|male		|
+		|18		|female 	|
+		|122	|female		|	
+		|20		|male		|
+
+		
+Scenario Outline:	The patient will capture symptomps on the page ;  in this case the patient does not 
+	experienc any of the covid - 19 symptoms.
+	
+		WHEN    User selects COVID-19 checkup button
+		THEN	Introduction page is displayed with an anonymous message 
+		AND     the user will receive an Interview ID
+		WHEN	User clicks on Next button
+		AND	  	User accepts the T&Cs checkbox
+		AND		Press the Next button
+		AND 	Select the <"Gender">
+		AND		User selects <"age">
+		AND     Press Next Button  
+		AND    	Leave statements that apply blank - do not select any option
+		AND     Press Next Button 
+		AND    	Leave page as is and Press Next button
+		AND    	Symptoms page, select No for all options
+		AND    	Press the Next button
+		AND    	Leave page as is 
+		AND		Press next button
+		AND    	Select the No, in the abililty to smell or taste question
+	    And	   	Select option None of the above
+		AND 	Press the next button
+		THEN    System done analysing data, 
+		AND   	the user will be informed follow preventiv measures 
+	
+Examples:	
+		|age	|Gender	
+		|18		|female		|
+		|122	|female		|	
+		|20		|male		|
+		
+		
+
+		
+		
+Scenario Outline:	The patient will capture symptomps on the page ;  in this case the patient does not 
+	experienc any of the covid - 19 symptoms but they have however been exposed to someone that has 
+	
+		WHEN    User selects COVID-19 checkup button
+		THEN	Introduction page is displayed with an anonymous message 
+		AND     the user will receive an Interview ID
+		WHEN	User clicks on Next button
+		AND	  	User accepts the T&Cs checkbox
+		AND		Press the Next button
+		AND 	Select <"Gender">
+		AND		User selects <"age"> 
+		AND     Press Next Button  
+		AND    	Leave statements that apply blank - do not select any option
+		AND     Press Next Button 
+		AND    	Leave page as is and Press Next button
+		AND    	Symptoms page, select No for all options
+		AND    	Press the Next button
+		AND    	Leave page as is 
+		AND		Press next button
+		AND    	Select the No, in the abililty to smell or taste question
+	    And	   	Select option one, which reads " I live with or have provided .."
+		AND 	Press the next button
+		THEN    System done analysing data, 
+		AND   	the user will be informed to Quarantine 
+		
+		
+Examples:	
+		|age	|Gender	
+		|20		|male		|
+		|122 	|female		|
+		
+		
+		
+		
+		
+		
+
+		
+	Scenario:	New (unregistered) user comes to the application, search, register and purchase
+		When	User enter datat in Search field
+		And 	User click on Search Button
+		And		User click on add to cart for the first first search result
+		And		User clicks on my cart button
+		Then	User shoud get added item in cart
+		And		User should get price of item in front of item name
+		When	User click on Purchse button
+		And		User select pyament mode is Credit Cart
+		
+		
+		
+	Scenario:	Resistered User, Search iteam, add to cart and purchase
+		When	User enter "Mobile phone" in Search Field
+		And		User click on Search button
+		And		User click on Add to cart for the first search
+		
+	Scenario: 	Registered User, Search, add to cart, change address and payment
+		When	User enter "Smart TV" in Search Field
+		And		User click on Search button
+		And		User click on Add to cart for the first search
