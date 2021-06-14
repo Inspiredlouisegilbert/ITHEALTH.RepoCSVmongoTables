@@ -1,6 +1,7 @@
 package Symptomate;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import frameworkclasses.BasePage;
 
@@ -14,14 +15,15 @@ public class TermsAndConditions extends BasePage {
         return text;
     }
 
-	
-	
-	
-	
-	
-	
-	
-	
+	public void clickCheckbox(By pLocator) {
+        driver.findElement(pLocator).click();
+   }
+
+	public boolean isButtonEnable(By pLocator) {
+        //change null to checkbox locator
+        //pLocator should be for the button
+        return driver.findElement(pLocator).isEnabled();
+    }
 	
 	
 	
