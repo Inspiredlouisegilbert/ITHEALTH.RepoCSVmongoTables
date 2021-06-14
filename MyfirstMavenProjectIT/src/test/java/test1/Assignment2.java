@@ -36,7 +36,7 @@ public class Assignment2 {
 	public void gotoTariff() {
 		pn.getFromprop("systemUnderTest");
 		home.clickAddTariff();
-		String ActualHeader1= addCustomer.getheader(By.xpath("//span[@id='header']//a[@href='index.html']"));
+		String ActualHeader1= addCustomer.getElementText(By.xpath("//span[@id='header']//a[@href='index.html']"));
 		String Expectedh1= "Guru99 telecom";
 		
 		 Reporter.log("expected ------------------"+Expectedh1);
@@ -48,7 +48,7 @@ public class Assignment2 {
 	@Test(priority = 1)
 	public void checkHeader() {
 		
-		String ActualHeader1= addCustomer.getheader(By.xpath("//section[@id='main']/div[@class='inner']//h1[.='Add Tariff Plan to Customer']"));
+		String ActualHeader1= addCustomer.getElementText(By.xpath("//section[@id='main']/div[@class='inner']//h1[.='Add Tariff Plan to Customer']"));
 		String Expectedh1= "Add Tariff Plan to Customer";
 		
 		 Reporter.log("expected ------------------"+Expectedh1);
@@ -63,7 +63,7 @@ public class Assignment2 {
 		plan.EnterCustomerID(customerId);
 		plan.Submit();
 		
-		String active = plan.getheader(By.xpath("//section[@id='main']/div[@class='inner']//font[.='ACTIVE']"));
+		String active = plan.getElementText(By.xpath("//section[@id='main']/div[@class='inner']//font[.='ACTIVE']"));
 		String expet= "ACTIVE";
 		
 		
@@ -88,7 +88,7 @@ public void checkPendingCus() {
 		plan.EnterCustomerID(customerId);
 		plan.Submit();
 		
-		String active = plan.getheader(By.xpath("//section[@id='main']/div[@class='inner']//font[.='INACTIVE']"));
+		String active = plan.getElementText(By.xpath("//section[@id='main']/div[@class='inner']//font[.='INACTIVE']"));
 		String expet= "INACTIVE";
 		
 		

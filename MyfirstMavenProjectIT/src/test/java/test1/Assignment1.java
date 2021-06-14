@@ -20,7 +20,7 @@ public class Assignment1 {
 	@Test(priority = 0)
 	public void testHeader1() {
 		home.clickCustomer();
-		String ActualHeader1= addCustomer.getheader(By.xpath("//span[@id='header']//a[@href='index.html']"));
+		String ActualHeader1= addCustomer.getElementText(By.xpath("//span[@id='header']//a[@href='index.html']"));
 		String Expectedh1= "Guru99 telecom";
 		addCustomer.clickDone();
 
@@ -35,7 +35,7 @@ public class Assignment1 {
 	public void testHeader() {
 //		addCustomer.clickDone();
 
-		String ActualHeader2= addCustomer.getheader(By.xpath("//section[@id='main']/div[@class='inner']//h1[.='Add Customer']"));
+		String ActualHeader2= addCustomer.getElementText(By.xpath("//section[@id='main']/div[@class='inner']//h1[.='Add Customer']"));
 		String Expectedh2= "Add Customer";
 		
 		

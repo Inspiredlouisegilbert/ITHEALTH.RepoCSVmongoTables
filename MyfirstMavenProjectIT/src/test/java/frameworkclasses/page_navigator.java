@@ -1,7 +1,5 @@
 package frameworkclasses;
 
-import frameworkclasses.BasePage;
-
 public class page_navigator extends BasePage {
    String Url = "";
 	public void setuptest() {
