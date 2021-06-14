@@ -14,6 +14,4 @@ public class CovidTests {
 	Results newResults = new Results();
 	Introduction newIntroduction = new Introduction();
 	TermsAndConditions newTermsAndConditions = new TermsAndConditions();
-	
-	
 }
