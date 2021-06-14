@@ -41,7 +41,7 @@ public class patientDetails extends BasePage{
 				break;
 			}
 		}
-		
+	
 		
 	}
 	

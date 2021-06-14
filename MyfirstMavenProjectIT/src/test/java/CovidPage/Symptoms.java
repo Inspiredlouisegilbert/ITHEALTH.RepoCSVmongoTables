@@ -40,9 +40,7 @@ public class Symptoms extends BasePage {
 			}
 		}
 
-	public void clickCheckbox(By pLocator) {
-		 driver.findElement(pLocator).click();
-	}
+
 	
 //	public boolean isButtonEnable(By pLocator) {
 //		//change null to checkbox locator
