@@ -6,10 +6,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Parameters;
 
@@ -82,6 +87,64 @@ public class BasePage {
 		
 	return p.getProperty(propertyName);
 	}
+	
+	public void waitForElement(int elementWait,By pLocator) {
+        WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(pLocator));
+        
+    }
+    
+    public void waitForClick(int elementWait,By pLocator) {
+        WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
+        wait.until(ExpectedConditions.elementToBeClickable(pLocator));
+        
+    }
+    
+    public void cleanUp() {
+        driver.close();
+    }
+    
+    public String getElementText(By pLocator) {
+        waitForElement(10,pLocator);
+        String h1 = getElement(pLocator).getText();
+        return h1;
+    }
+
+ 
+
+    public void clickElement(By pLocator) {
+        
+        waitForClick(10,pLocator);
+        getElement(pLocator).click();
+    }
+    
+    public WebElement getElement(By pLocator) {
+        
+        waitForElement(10,pLocator);
+        return driver.findElement(pLocator);
+    }
+
+ 
+
+    public void EnterText(By pLocator,String pText) {
+        
+        waitForClick(10,pLocator);
+         driver.findElement(pLocator).sendKeys(pText);
+    }
+
+ 
+
+    public void pressEnter(By pLocator) {
+        
+        getElement(pLocator).sendKeys(Keys.ENTER);
+        
+    }
+    
+    public String getValue(By pLocator) {
+        waitForElement(10,pLocator);
+        String value = driver.findElement(pLocator).getAttribute("value");
+        return value;
+    }
 	
 
 
