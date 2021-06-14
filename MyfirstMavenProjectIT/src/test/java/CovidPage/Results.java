@@ -1,4 +1,4 @@
-package pages;
+package CovidPage;
 
 import org.openqa.selenium.By;
 

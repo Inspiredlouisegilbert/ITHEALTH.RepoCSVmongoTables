@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import frameworkclasses.BasePage;
 
-public class patientDetails extends BasePage{
+public class PatientDetails extends BasePage{
 	
  
 	public void clickMale(){
