@@ -7,7 +7,6 @@ import CovidPage.Symptoms;
 import CovidPage.TermsAndConditions;
 
 public class CovidTests {
-
 	//instantiate needed pages
 	PatientDetails newPatientDetails = new PatientDetails();
 	Symptoms newSymptoms = new Symptoms();
