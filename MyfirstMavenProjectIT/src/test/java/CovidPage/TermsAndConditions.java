@@ -15,8 +15,8 @@ public class TermsAndConditions extends BasePage {
         return text;
     }
 
-	public void clickCheckbox(By pLocator) {
-        driver.findElement(pLocator).click();
+	public void clickCheckbox() {
+        driver.findElement(By.id("choice_99991_99991")).click();
    }
 
 	public boolean isButtonEnable(By pLocator) {

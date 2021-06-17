@@ -36,14 +36,29 @@ public class CovidTests {
         newHomePage.clickStartCheckUp();
         
 		//		THEN	Introduction page is displayed with an anonymou message 
-		//		AND     the user will receive an Interview ID
+        String actualIntroMessage = newIntroduction.checkIntroductionText();
+        String expectedIntroMessage = "Our anonymous, reliable WHO-based tool can help you assess your risk of having COVID-19. By answering a few questions about symptoms, travel and contact with others, it shows you next steps to take.";
+		
+        Assert.assertEquals(actualIntroMessage, expectedIntroMessage);
+        
+        //		AND     the user will receive an Interview ID
+        int actualId = newIntroduction.checkInterviewId().length();
+        Assert.assertTrue(actualId>0);
+        
 		//		WHEN	User clicks on Next button
-		//		AND	  	User accepts the T&Cs 
+        newIntroduction.clickOnNextBtn();
+		//		AND	  	User accepts the T&Cs
+        newTermsAndConditions.clickCheckbox();
 		//		AND		Press the Next button
+        newIntroduction.clickOnNextBtn();
 		//		AND 	Select the Male gender
-		//		AND		User selects the 70 age 
-		//		AND     Press Next BUTTON  
+        newPatientDetails.clickMale();
+		//		AND		User selects the 70 age
+        newPatientDetails.setAge(70);
+		//		AND     Press Next BUTTON
+        newPatientDetails.clickNext();
 		//		AND    	Select Current cancer and Obesity as the options
+       
 		//		AND     Press Next Button 
 		//		AND    	Leave page as is and Press Next button
 		//		AND    	Symptoms page, select All to be yes

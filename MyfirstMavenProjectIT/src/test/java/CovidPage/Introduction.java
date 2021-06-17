@@ -28,12 +28,10 @@ public class Introduction extends BasePage {
     }
 
     //Click on Next button
-    public TermsAndConditions clickOnNextBtn() {
+    public void clickOnNextBtn() {
         
     	driver.findElement(By.xpath("//div[@class='form has-side-menu']/div[2]//button[2]")).click();
-        
-        //clicking on Next button will display Terms and Conditions
-        return new TermsAndConditions();
+       
     }
     
     
