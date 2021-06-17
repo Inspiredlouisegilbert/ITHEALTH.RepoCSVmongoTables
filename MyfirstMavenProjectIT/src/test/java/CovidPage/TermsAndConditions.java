@@ -16,8 +16,8 @@ public class TermsAndConditions extends BasePage {
     }
 
 	public void clickCheckbox() {
-        driver.findElement(By.id("choice_99991_99991")).click();
-   }
+		clickElement(By.id("choice_99991_99991")); 
+}
 
 	public boolean isButtonEnable(By pLocator) {
         //change null to checkbox locator
