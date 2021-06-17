@@ -12,7 +12,7 @@ public class TermsAndConditions extends BasePage {
         
         String text = driver.findElement(By.xpath("//h3[.='Terms of Service']")).getText();
         
-        return text;
+        return text; 
     }
 
 	public void clickCheckbox() {
