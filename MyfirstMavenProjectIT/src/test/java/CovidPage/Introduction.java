@@ -19,19 +19,18 @@ public class Introduction extends BasePage {
     //Checks the text on the Introduction page
     public String checkIntroductionText() {
         
-    	return driver.findElement(By.xpath("//p[@class='ng-scope']")).getText();
+    	return getElementText(By.xpath("//p[@class='ng-scope']"));
     }
 	
     public String checkInterviewId() {
     	
-    	return driver.findElement(By.cssSelector("[render-html='interviewId']")).getText();
+    	return getElementText(By.cssSelector("[render-html='interviewId']"));
     }
 
     //Click on Next button
     public void clickOnNextBtn() {
         
-    	driver.findElement(By.xpath("//div[@class='form has-side-menu']/div[2]//button[2]")).click();
-       
+    	clickElement(By.xpath("//div[@class='form has-side-menu']/div[2]//button[2]"));       
     }
     
     

@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MvuyoAssignment.RunAssignment">
+      <class name="covidRelatedTests.CovidTests">
         <methods>
-          <include name="testHeader"/>
-          <include name="testHeader1"/>
-          <include name="testlabel"/>
-          <include name="testAlert"/>
+          <include name="CleanUp"/>
+          <include name="GIVEN_age70_AND_genderMale_AND_userNavigatedtoCovidCheckLanding_WHEN_userEntersDetails_THEN_HeIsAskedtoGoToHospital"/>
         </methods>
-      </class> <!-- MvuyoAssignment.RunAssignment -->
+      </class> <!-- covidRelatedTests.CovidTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
