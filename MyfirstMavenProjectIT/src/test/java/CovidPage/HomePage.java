@@ -8,15 +8,15 @@ public class HomePage extends BasePage{
 		String clickCheckupButton = "//a[@href='/covid19/checkup/']";
 		
 	    public String checkStartCheckup() {
-	        
-	         String text = driver.findElement(By.xpath(clickCheckupButton)).getText();
+	    	
+	         String text = getElementText(By.xpath(clickCheckupButton));
 	         return text;   
 	    } 
 	    
 	    //Click on Covid19 checkup button
 	    public void clickStartCheckUp() {
-	    
-	    	driver.findElement(By.xpath(clickCheckupButton)).click();
+	    	
+	    	clickElement(By.xpath(clickCheckupButton));
 	    }
 
 	    

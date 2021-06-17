@@ -59,20 +59,40 @@ public class CovidTests {
         newPatientDetails.clickNext();
 		//		AND    	Select Current cancer and Obesity as the options
        newSymptoms.clickCheckbox("choice_p_26");
+       newSymptoms.clickCheckbox("choice_p_18");
 		//		AND     Press Next Button 
+       newSymptoms.clickNext();
 		//		AND    	Leave page as is and Press Next button
+       newSymptoms.clickNext();
 		//		AND    	Symptoms page, select All to be yes
+       newSymptoms.clickYesNoRadio(1, "yes");
+       newSymptoms.clickYesNoRadio(2, "yes");
+       newSymptoms.clickYesNoRadio(3, "yes");
 		//		AND    	Press the Next
+       newSymptoms.clickNext();
 		//		AND    	Select Headache and sore Throat
+       newSymptoms.clickCheckbox("choice_s_18");
+       newSymptoms.clickCheckbox("choice_s_21");
 		//		AND		Press next button
+       newSymptoms.clickNext();
 		//		AND    	Select the 38.1 till 40 degrees
+       newSymptoms.selectTempRadio("choice_s_23");
 		//		AND 	Press Next Button
+       newSymptoms.clickNext();
 		//	    And	   	Select yes for heavy breathing 
+       newSymptoms.clickYesButton();
 		//		And	    Select yes for trouble with speaking due to heavy breathing problems
+       newSymptoms.clickYesButton();
 		//		and	    Select yes for daily activities making you feel dizzy
+       newSymptoms.clickYesButton();
 		//		AND    	Click yes for feeling confusing or overly sleepy 
+       newSymptoms.clickYesButton();
 		//		THEN    System done analysing data, 
 		//		AND   	the user will be informed to go to a hospital
+       String actualResults = newResults.getResults();
+       String expectedResults = "Head to the hospital. Avoid all contact.";
+       
+       Assert.assertEquals(actualResults, expectedResults);
 	}
 	
 	@AfterTest
