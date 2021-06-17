@@ -16,7 +16,7 @@ public class TermsAndConditions extends BasePage {
     }
 
 	public void clickCheckbox() {
-		clickElement(By.id("choice_99991_99991")); 
+		clickElement(By.xpath("//label [@for ='choice_99991_99991'")); 
 }
 
 	public boolean isButtonEnable(By pLocator) {

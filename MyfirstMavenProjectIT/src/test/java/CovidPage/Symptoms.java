@@ -7,7 +7,7 @@ import frameworkclasses.BasePage;
 public class Symptoms extends BasePage {
 
 	public void clickCheckbox(String pId) {
-		clickElement(By.id(pId));
+		clickElement(By.xpath("//label [@for ='"+pId+"'"));
 	}
 
 	public void clickYesNoRadio(int pOption, String pAnswer) {
