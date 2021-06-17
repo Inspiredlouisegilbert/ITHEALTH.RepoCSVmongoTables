@@ -37,7 +37,7 @@ public class BasePage {
     		if(browser.equalsIgnoreCase("firefox")){
     		//create firefox instance
     			System.setProperty("webdriver.gecko.driver", pdriverDir+"geckodriver.exe");
-    			driver     = new FirefoxDriver();
+    			driver = new FirefoxDriver();
     			driver.get(systemUnderTest);
                 driver.manage().window().maximize();
     			
