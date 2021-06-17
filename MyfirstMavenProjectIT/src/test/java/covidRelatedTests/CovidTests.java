@@ -58,7 +58,7 @@ public class CovidTests {
 		//		AND     Press Next BUTTON
         newPatientDetails.clickNext();
 		//		AND    	Select Current cancer and Obesity as the options
-       
+       newSymptoms.clickCheckbox("choice_p_26");
 		//		AND     Press Next Button 
 		//		AND    	Leave page as is and Press Next button
 		//		AND    	Symptoms page, select All to be yes
