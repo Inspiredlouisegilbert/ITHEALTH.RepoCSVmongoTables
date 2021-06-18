@@ -54,7 +54,7 @@ public class CovidTests {
 		//		AND 	Select the Male gender
         newPatientDetails.clickMale();
 		//		AND		User selects the 70 age
-        newPatientDetails.setAge(51);
+        newPatientDetails.setAge(70);
 		//		AND     Press Next BUTTON
         newPatientDetails.clickNext();
 		//		AND    	Select Current cancer and Obesity as the options
@@ -63,7 +63,7 @@ public class CovidTests {
 		//		AND     Press Next Button 
        newSymptoms.clickNext();
 		//		AND    	Leave page as is and Press Next button
-       // Check and uncheck something
+       // LG: Check and uncheck something
        newSymptoms.clickCheckbox("choice_p_18");
        newSymptoms.clickCheckbox("choice_p_18");
        newSymptoms.clickNext();
