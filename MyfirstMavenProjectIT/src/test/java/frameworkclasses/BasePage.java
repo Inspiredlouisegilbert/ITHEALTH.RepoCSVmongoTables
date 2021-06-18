@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -40,6 +42,7 @@ public class BasePage {
     			driver = new FirefoxDriver();
     			driver.get(systemUnderTest);
                 driver.manage().window().maximize();
+                //driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
     			
     		}
     		//Check if parameter passed as 'chrome'
@@ -50,6 +53,7 @@ public class BasePage {
     			driver     = new ChromeDriver();
     			driver.get(systemUnderTest);
                 driver.manage().window().maximize();
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     			
     		}
     		//Check if parameter passed as 'Edge'
@@ -109,11 +113,16 @@ public class BasePage {
 		return h1;
 	}
 
-	public void clickElement(By pLocator) {
+	public void clickElement(By pLocator) throws InterruptedException {
 		
 		waitForClick(10,pLocator);
-		getElement(pLocator).click();
+		//getElement(pLocator).click();
+		WebElement clickElement = driver.findElement(pLocator);
+		Actions act = new Actions(driver);
+		Thread.sleep(100);
+		act.moveToElement(clickElement).click().perform();
 	}
+	
 	
 	public WebElement getElement(By pLocator) {
 		
@@ -135,7 +144,8 @@ public class BasePage {
 	
 	public String getValue(By pLocator) {
 		waitForElement(10,pLocator);
-		String value = driver.findElement(pLocator).getAttribute("value");
+		//String value = driver.findElement(pLocator).getAttribute("value");
+		String value = driver.findElement(pLocator).getText();
 		return value;
 	}
 }

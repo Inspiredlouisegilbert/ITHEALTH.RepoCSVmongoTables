@@ -1,5 +1,6 @@
 package covidRelatedTests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
@@ -22,7 +23,7 @@ public class CovidTests {
 	TermsAndConditions newTermsAndConditions = new TermsAndConditions();
 	
 	@Test
-	public void GIVEN_age70_AND_genderMale_AND_userNavigatedtoCovidCheckLanding_WHEN_userEntersDetails_THEN_HeIsAskedtoGoToHospital() {
+	public void GIVEN_age70_AND_genderMale_AND_userNavigatedtoCovidCheckLanding_WHEN_userEntersDetails_THEN_HeIsAskedtoGoToHospital() throws InterruptedException {
 		//Given	User open browsed to Symptomate
 		String  actualHomeButton =  newHomePage.checkStartCheckup();
 		String expectedHomeButton = "COVID-19 checkup";
@@ -44,7 +45,6 @@ public class CovidTests {
         //		AND     the user will receive an Interview ID
         int actualId = newIntroduction.checkInterviewId().length();
         Assert.assertTrue(actualId>0);
-        
 		//		WHEN	User clicks on Next button
         newIntroduction.clickOnNextBtn();
 		//		AND	  	User accepts the T&Cs
@@ -54,7 +54,7 @@ public class CovidTests {
 		//		AND 	Select the Male gender
         newPatientDetails.clickMale();
 		//		AND		User selects the 70 age
-        newPatientDetails.setAge(70);
+        newPatientDetails.setAge(51);
 		//		AND     Press Next BUTTON
         newPatientDetails.clickNext();
 		//		AND    	Select Current cancer and Obesity as the options
@@ -63,6 +63,9 @@ public class CovidTests {
 		//		AND     Press Next Button 
        newSymptoms.clickNext();
 		//		AND    	Leave page as is and Press Next button
+       // Check and uncheck something
+       newSymptoms.clickCheckbox("choice_p_18");
+       newSymptoms.clickCheckbox("choice_p_18");
        newSymptoms.clickNext();
 		//		AND    	Symptoms page, select All to be yes
        newSymptoms.clickYesNoRadio(1, "yes");
@@ -76,7 +79,7 @@ public class CovidTests {
 		//		AND		Press next button
        newSymptoms.clickNext();
 		//		AND    	Select the 38.1 till 40 degrees
-       newSymptoms.selectTempRadio("choice_s_23");
+       newSymptoms.selectTempRadio("[for='choice_s_22']");
 		//		AND 	Press Next Button
        newSymptoms.clickNext();
 		//	    And	   	Select yes for heavy breathing 
@@ -95,7 +98,7 @@ public class CovidTests {
        Assert.assertEquals(actualResults, expectedResults);
 	}
 	
-	//@AfterTest
+	@AfterTest
 	public void CleanUp()
 	{
 		newHomePage.cleanUp();

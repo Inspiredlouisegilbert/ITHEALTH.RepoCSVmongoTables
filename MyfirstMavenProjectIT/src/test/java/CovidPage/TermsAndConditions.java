@@ -16,11 +16,9 @@ public class TermsAndConditions extends BasePage {
         return text; 
     }
 
-	public void clickCheckbox() {
-		//clickElement(By.xpath("//label [@for ='choice_99991_99991'")); 
-		WebElement yourChkBox  = driver.findElement(By.cssSelector("form[name='screenForm'] > .checkbox-label.ng-scope"));
-        Actions act = new Actions(driver);
-        act.moveToElement(yourChkBox).moveByOffset(0, 40).click().build().perform();
+	public void clickCheckbox() throws InterruptedException {
+		
+        clickElement(By.xpath("//label[1]"));
 }
 
 	public boolean isButtonEnable(By pLocator) {

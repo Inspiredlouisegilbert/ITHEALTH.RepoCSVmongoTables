@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
 	    } 
 	    
 	    //Click on Covid19 checkup button
-	    public void clickStartCheckUp() {
+	    public void clickStartCheckUp() throws InterruptedException {
 	    	
 	    	clickElement(By.xpath(clickCheckupButton));
 	    }

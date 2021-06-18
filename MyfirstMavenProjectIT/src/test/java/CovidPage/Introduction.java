@@ -1,6 +1,8 @@
 package CovidPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,9 +30,8 @@ public class Introduction extends BasePage {
     }
 
     //Click on Next button
-    public void clickOnNextBtn() {
-        
-    	clickElement(By.xpath("//div[@class='form has-side-menu']/div[2]//button[2]"));       
+    public void clickOnNextBtn() throws InterruptedException {
+    	clickElement(By.xpath("//button[contains(text(),'Next')]"));      
     }
     
     
