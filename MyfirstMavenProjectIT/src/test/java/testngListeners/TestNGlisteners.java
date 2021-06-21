@@ -108,9 +108,11 @@ public class TestNGlisteners extends BasePage implements ITestListener
 		System.out.println("****** onFinish: ");
 		try {
 			uts.takeSnapShot("onFinish"+uts.timereturn()+".png");
+            cleanUp();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("error");
 		}
 	}
 
