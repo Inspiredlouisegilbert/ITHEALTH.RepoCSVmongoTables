@@ -7,6 +7,9 @@ import frameworkclasses.BasePage;
 
 public class RegisterPage extends BasePage{
 	
+	public String pageURL() {
+		return driver.getCurrentUrl();
+	}
 	public void enterName(String pName) {
 		EnterText(By.xpath("//input[@name='firstName']"), pName);
 	}
@@ -63,19 +66,19 @@ public class RegisterPage extends BasePage{
 		clickElement(By.xpath("//a[@href='register.php'"));
 	}
 	
-	public void register(String pName, String pLastName,String pPhone,String pEmail,String PAddress,String pCity,String pState,String pPostal,String pCountry,String pUser,String pPassword,String pCPassword) {
+	public void register(String pName, String pLastName,String pCountry,String pEmail,String pPassword) {
 		enterName(pName);
 		enterLastName(pLastName);
-		enterPhone(pPhone);
+		//enterPhone(pPhone);
 		enterEmail(pEmail);
-		enterAddress(PAddress);
-		enterCity(pCity);
-		enterState(pState);
-		enterPostal(pPostal);
+		//enterAddress(PAddress);
+		//enterCity(pCity);
+		//enterState(pState);
+		//enterPostal(pPostal);
 		selectCountry(pCountry);
-		enterUser(pUser);
+		enterUser(pEmail);
 		enterPassword(pPassword);
-		enterConPassword(pCPassword);
+		enterConPassword(pPassword);
 		enterSubmit();
 	}
 	}
