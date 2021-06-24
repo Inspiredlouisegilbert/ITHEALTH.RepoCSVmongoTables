@@ -16,6 +16,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -113,14 +114,14 @@ public class BasePage {
 		return h1;
 	}
 
-	public void clickElement(By pLocator) throws InterruptedException {
+	public void clickElement(By pLocator)  {
 		
 		waitForClick(10,pLocator);
-		//getElement(pLocator).click();
-		WebElement clickElement = driver.findElement(pLocator);
-		Actions act = new Actions(driver);
-		Thread.sleep(100);
-		act.moveToElement(clickElement).click().perform();
+		getElement(pLocator).click();
+//		WebElement clickElement = driver.findElement(pLocator);
+//		Actions act = new Actions(driver);
+//		Thread.sleep(100);
+//		act.moveToElement(clickElement).click().perform();
 	}
 	
 	
@@ -148,5 +149,14 @@ public class BasePage {
 		String value = driver.findElement(pLocator).getText();
 		return value;
 	}
+	
+	public void selectDropDown(By pLocator, String pValue){
+		
+		// Creates an instance of the dropdown object
+		Select sDrpDown = new Select (getElement(pLocator));
+		
+		// Populates the Dropdown
+		sDrpDown.selectByVisibleText(pValue);
+}
 }
     

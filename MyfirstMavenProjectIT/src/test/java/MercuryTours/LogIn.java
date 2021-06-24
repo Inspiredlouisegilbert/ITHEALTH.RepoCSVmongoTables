@@ -17,4 +17,10 @@ public class LogIn extends BasePage {
 		public void ClickSubmitButton(){
 			clickElement(By.xpath("//input[@name='submit']"));
 		}
+		
+		public void login(String pUserName,String pPassword) {
+			EnterUserDetails(pUserName);
+			EnterUserPassword(pPassword);
+			ClickSubmitButton();
+		}
 }
