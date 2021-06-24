@@ -3,14 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test1.Assignment1">
+      <class name="MercuryToursTests.Register">
         <methods>
-          <include name="testHeader"/>
-          <include name="testAlert"/>
-          <include name="testlabel"/>
-          <include name="testHeader1"/>
+          <include name="RegisterTest"/>
         </methods>
-      </class> <!-- test1.Assignment1 -->
+      </class> <!-- MercuryToursTests.Register -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -55,7 +55,7 @@ public class RegisterPage extends BasePage{
 	}
      
 	public void selectCountry(String pValue) {
-		selectDropDown(By.xpath("//input[@name='country']"), pValue);
+		selectDropDown(By.xpath("//select[@name='country']"), pValue);
 	}
 	
 	public void enterSubmit() {
@@ -63,7 +63,7 @@ public class RegisterPage extends BasePage{
 	}
 	
 	public void clickRegister() {
-		clickElement(By.xpath("//a[@href='register.php'"));
+		clickElement(By.xpath("//a[@href='register.php']"));
 	}
 	
 	public void register(String pName, String pLastName,String pCountry,String pEmail,String pPassword) {

@@ -150,11 +150,9 @@ public class BasePage {
 		return value;
 	}
 	
-	public void selectDropDown(By pLocator, String pValue){
-		
+	public void selectDropDown(By pLocator, String pValue){		
 		// Creates an instance of the dropdown object
-		Select sDrpDown = new Select (getElement(pLocator));
-		
+		Select sDrpDown = new Select (getElement(pLocator));		
 		// Populates the Dropdown
 		sDrpDown.selectByVisibleText(pValue);
 }
