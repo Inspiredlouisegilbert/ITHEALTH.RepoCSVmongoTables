@@ -1,0 +1,58 @@
+Test Case 1 : Registration
+
+Feature :As a user I would like to register on the tours web site
+
+Background: 
+		Given user open url http://demo.guru99.com/test/newtours/ 
+		
+Scenario Outline :The user will capture valid information on the registration page;then they will submit their information.
+
+		WHEN User clicks on the hyperlink "REGISTER"
+		THEN Registration page is displayed
+		WHEN  The user will fill in the "Contact Information"
+		AND  The user will fill in the "Mailing Information"
+		AND  The user will fill in the "User Information"
+		AND  The user will click the submit button
+	    THEN The message will be displayed "Thank you for registering"
+		
+		
+Examples:	
+		|First Name	|Country	|Username          | Password
+		|Polela     |Russia 	|polela@gmail.com  |password@1
+		|Faith 		|Spain  	|faith@gmail.com   |password@2
+		|Mvuyo 		|Italy		|mvuyo@gmail.com   |password@3
+		|Junaid 	|Brazil		|juanid@gmail.com  |password@4
+		
+################################################################################
+
+Test Case 2 : Sign On
+
+Feature :As a user I would like to sign on the tours web site
+
+Scenario Outline :The user will enter valid username and password they registered with;then they will sign in.
+
+        When User clicks on the hyperlink "SIGN ON"
+		AND User enter valid username and password
+		AND User clicks on the submit button
+		THEN Log in page will be displayed
+		AND The message will be displayed "Login Successfully"	
+
+Examples:
+		|Username          | Password
+		|polela@gmail.com  |password@1
+		|faith@gmail.com   |password@2
+		|mvuyo@gmail.com   |password@3
+		|juanid@gmail.com  |password@4
+		
+############################################################################################
+
+Test Case 3: Inccorrect Login Details
+
+Feature :A user will enter incorrect username or password on the tours web site
+
+Scenario Outline : The user will enter incorrect username or password ;then they will not be able to sign in.
+
+		When User enters invalid username or password
+		AND User clicks on the submit button
+		THEN  An error message will be displayed "Enter your userName and password correct"
+		
