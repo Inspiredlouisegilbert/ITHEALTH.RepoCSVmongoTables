@@ -98,9 +98,9 @@ public class CovidTests {
        Assert.assertEquals(actualResults, expectedResults);
 	}
 	
-	@AfterTest
-	public void CleanUp()
-	{
-		newHomePage.cleanUp();
-	}
+//	@AfterTest
+//	public void CleanUp()
+//	{
+//		newHomePage.cleanUp();
+//	}
 }
