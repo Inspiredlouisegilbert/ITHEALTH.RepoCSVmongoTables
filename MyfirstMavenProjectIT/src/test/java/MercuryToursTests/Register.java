@@ -1,5 +1,9 @@
 package MercuryToursTests;
 
-public class Register {
+import MercuryTours.RegisterPage;
 
+public class Register {
+     RegisterPage reg = new RegisterPage();
+     
+     
 }
