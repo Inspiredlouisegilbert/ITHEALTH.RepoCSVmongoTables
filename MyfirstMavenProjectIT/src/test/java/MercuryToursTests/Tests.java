@@ -34,14 +34,14 @@ public class Tests {
      }
      
      
-     
+     @Test
      public void SignIn() {
     	 RegisterTest();
 //    	 Test Case 2 : Sign On
 //    	 Feature :As a user I would like to sign on the tours web site
 //    	 Scenario Outline :The user will enter valid username and password they registered with;then they will sign in.
 //    	        When User clicks on the hyperlink "SIGN ON"
-    	 loginScreen.SelectSignOnLink();
+    	 loginScreen.SelectSignOffLink();
 //    	 		AND User enter valid username and password
     	 loginScreen.login(email,password);
 //    	 		AND User clicks on the submit button
