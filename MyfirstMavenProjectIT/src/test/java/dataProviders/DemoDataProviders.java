@@ -8,9 +8,9 @@ public class DemoDataProviders {
     public Object[][] getDataFromDataprovider(){
     return new Object[][] 
     	{
-            { "Guru99 Class", "India" },
-            { "Krishna Class", "UK" },
-            { "Bhupesh Class", "USA" }
+            { "Guru99 Class", "India Class","lkjl" },
+            { "Krishna Class", "UK Class","jkjhk" },
+            { "Bhupesh Class", "USA Class","jgjhgjgh" }
         };
     }
     
