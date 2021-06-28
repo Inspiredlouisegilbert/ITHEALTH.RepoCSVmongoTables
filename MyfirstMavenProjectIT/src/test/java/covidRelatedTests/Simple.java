@@ -105,8 +105,9 @@ public class Simple {
     public Object[][] excelDP() throws IOException{
 
             //We are creating an object from the excel sheet data by calling a method that reads data from the excel stored locally in our system
-
-            Object[][] arrObj = getExcelData("C:\\tmp\\registerAndLogin.xlsx","Sheet1");
+    		// Get the directory where the excel file is placed
+    		String excelDirectory = newHomePage.getDataConfigProperties("xlsDir");
+            Object[][] arrObj = getExcelData(excelDirectory+"registerAndLogin.xlsx","Sheet1");
 
             return arrObj;
 
@@ -134,10 +135,14 @@ public class Simple {
              for(int j=0;j<noOfCols;j++){
                    row = sh.getRow(i);
                    cell= row.getCell(j);
+
                    data[i-1][j] = cell.getStringCellValue();
                    //System.out.println(data[i-1][j]);
+                   
+                 
 
                }
+
         }
 
         }
