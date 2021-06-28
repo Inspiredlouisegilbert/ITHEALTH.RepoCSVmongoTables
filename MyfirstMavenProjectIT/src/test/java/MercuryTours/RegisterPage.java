@@ -66,9 +66,9 @@ public class RegisterPage extends BasePage{
 		clickElement(By.xpath("//a[@href='register.php']"));
 	}
 	
-	public void register(String pName, String pLastName,String pCountry,String pEmail,String pPassword) {
+	public void register(String pName,String pCountry,String pEmail,String pPassword) {
 		enterName(pName);
-		enterLastName(pLastName);
+		//enterLastName(pLastName);
 		//enterPhone(pPhone);
 		enterEmail(pEmail);
 		//enterAddress(PAddress);

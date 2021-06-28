@@ -10,9 +10,9 @@ public class Tests {
      RegisterPage reg = new RegisterPage(); 
      LogIn loginScreen = new LogIn();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
-     String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
-     @Test
-     public void RegisterTest() {
+    // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
+     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     public void RegisterTest(String pName,String pCountry,String pEmail,String pPassword) {
 //    	 WHEN User clicks on the hyperlink "REGISTER"
     	 reg.clickRegister();
     	 
@@ -25,7 +25,7 @@ public class Tests {
 // 		AND  The user will fill in the "Mailing Information"
 // 		AND  The user will fill in the "User Information"
 // 		AND  The user will click the submit button
-    	 reg.register(name, lastName,country, email, password);
+    	 reg.register(pName, pCountry,pEmail, pPassword);
     	 
 // 	    THEN The message will be displayed "Thank you for registering"
     	 String actual = reg.pageURL();
@@ -34,16 +34,16 @@ public class Tests {
      }
      
      
-     @Test
-     public void SignIn() {
-    	 RegisterTest();
+     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     public void SignIn(String pName,String pCountry,String pEmail,String pPassword) {
+    	 RegisterTest(pName, pCountry,pEmail, pPassword);
 //    	 Test Case 2 : Sign On
 //    	 Feature :As a user I would like to sign on the tours web site
 //    	 Scenario Outline :The user will enter valid username and password they registered with;then they will sign in.
 //    	        When User clicks on the hyperlink "SIGN ON"
     	 loginScreen.SelectSignOffLink();
 //    	 		AND User enter valid username and password
-    	 loginScreen.login(email,password);
+    	 loginScreen.login(pEmail,pPassword);
 //    	 		AND User clicks on the submit button
 //    	 		THEN Log in page will be displayed
     	 Assert.assertTrue(loginScreen.IsSignOff());
@@ -59,13 +59,13 @@ public class Tests {
     	 loginScreen.SelectSignOffLink();
      }
      
-     @Test
-     public void IncorrectLogin() throws InterruptedException {
+     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     public void IncorrectLogin(String pUsername,String pPassword) throws InterruptedException {
 //    	 Feature :A user will enter incorrect username or password on the tours web site
 //    	 Scenario Outline : The user will enter incorrect username or password ;then they will not be able to sign in.
     	 loginScreen.SelectSignOnLink();
 //   	 When User enters invalid username or password
-    	 loginScreen.login(invalidemail,invalidpassword);
+    	 loginScreen.login(pUsername,pPassword);
 //	 		AND User clicks on the submit button
 //    	 THEN  An error message will be displayed "Enter your userName and password correct"
     	 String actual = loginScreen.ErrorMessage();
