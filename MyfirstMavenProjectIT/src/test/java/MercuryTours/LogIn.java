@@ -18,9 +18,26 @@ public class LogIn extends BasePage {
 			clickElement(By.xpath("//input[@name='submit']"));
 		}
 		
+		public void SelectSignOnLink(){
+			clickElement(By.linkText("SIGN-ON"));
+		}
+		
+		public void SelectSignOffLink(){
+			clickElement(By.linkText("SIGN-OFF"));
+		}
+		
+		public boolean IsSignOff(){
+			return getElement(By.linkText("SIGN-OFF")).isDisplayed();
+		}
+		
+		public boolean ValidateMessage(){
+			return getElement(By.xpath("//h3[.='Login Successfully']")).isDisplayed();
+		}
+		
 		public void login(String pUserName,String pPassword) {
 			EnterUserDetails(pUserName);
 			EnterUserPassword(pPassword);
 			ClickSubmitButton();
 		}
+		
 }
