@@ -11,7 +11,7 @@ public class Tests {
      LogIn loginScreen = new LogIn();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
     // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
-     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     //@Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void RegisterTest(String pName,String pCountry,String pEmail,String pPassword) {
 //    	 WHEN User clicks on the hyperlink "REGISTER"
     	 reg.clickRegister();
@@ -35,7 +35,7 @@ public class Tests {
      
      
      @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
-     public void SignIn(String pName,String pCountry,String pEmail,String pPassword) {
+     public void RegisterAndSignIn(String pName,String pCountry,String pEmail,String pPassword) {
     	 RegisterTest(pName, pCountry,pEmail, pPassword);
 //    	 Test Case 2 : Sign On
 //    	 Feature :As a user I would like to sign on the tours web site
@@ -59,7 +59,7 @@ public class Tests {
     	 loginScreen.SelectSignOffLink();
      }
      
-     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void IncorrectLogin(String pUsername,String pPassword) throws InterruptedException {
 //    	 Feature :A user will enter incorrect username or password on the tours web site
 //    	 Scenario Outline : The user will enter incorrect username or password ;then they will not be able to sign in.

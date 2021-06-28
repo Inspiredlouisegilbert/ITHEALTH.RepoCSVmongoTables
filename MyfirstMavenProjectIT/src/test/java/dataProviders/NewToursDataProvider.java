@@ -14,10 +14,10 @@ public class NewToursDataProvider {
 //    		|Faith 		|Spain  	|faith@gmail.com   |password@2
 //    		|Mvuyo 		|Italy		|mvuyo@gmail.com   |password@3
 //    		|Junaid 	|Brazil		|juanid@gmail.com  |password@4
-            { "Polela", "Russia" ,"polela@gmail.com","password@1"},
-            { "Faith", "Spain","faith@gmail.com","password@2" },
-            { "Mvuyo", "Italy" ,"mvuyo@gmail.com","password@3"},
-            { "Junaid", "Brazil" ,"juanid@gmail.com","password@4"}
+            { "Polela", "RUSSIA" ,"polela@gmail.com","password@1"},
+            { "Faith", "SPAIN","faith@gmail.com","password@2" },
+            { "Mvuyo", "ITALY" ,"mvuyo@gmail.com","password@3"},
+            { "Junaid", "BRAZIL" ,"juanid@gmail.com","password@4"}
         };
     }
     
