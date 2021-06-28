@@ -34,6 +34,11 @@ public class LogIn extends BasePage {
 			return getElement(By.xpath("//h3[.='Login Successfully']")).isDisplayed();
 		}
 		
+		public String ErrorMessage(){
+			return getElementText(By.xpath("//form[@name='register']/table/tbody/tr[2]/td[2]/span[1]"));
+		}
+		
+		
 		public void login(String pUserName,String pPassword) {
 			EnterUserDetails(pUserName);
 			EnterUserPassword(pPassword);
