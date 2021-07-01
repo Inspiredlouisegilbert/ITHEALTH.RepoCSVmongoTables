@@ -1,0 +1,18 @@
+Test Case 1 : Search for available flights
+
+Feature :As a user I would like to search for available flights
+
+Background:
+Given user is already logged in succesfully on to the url http://demo.guru99.com/test/newtours/)
+Scenario Outline :The user will search for available flights
+
+When User clicks on the hyperlink "Flights"
+THEN Flight Finder page is displayed
+AND The user will fill in the "Flight Details"
+AND The user will fill in the "Preferences"
+AND The user will click the continue button
+
+Examples:
+|Departing |Arriving in |Leaving | Returning
+|New York |London |2 weeks |2 weeks
+|London |Paris |3 weeks |4 weeks
