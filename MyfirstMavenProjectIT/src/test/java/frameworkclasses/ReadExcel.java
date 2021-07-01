@@ -3,7 +3,7 @@ package frameworkclasses;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -38,21 +38,20 @@ try
       */
      XSSFWorkbook wb = new XSSFWorkbook(fis);
      XSSFSheet sh = wb.getSheet(sheetName);
+     DataFormatter formatter = new DataFormatter();
      XSSFRow row = sh.getRow(0);
      int noOfRows = sh.getPhysicalNumberOfRows();
      int noOfCols = row.getLastCellNum();
      //High level representation of a cell in a row of a spreadsheet.
-     XSSFCell cell;
 
-     data = new String[noOfRows-1][noOfCols];
+
+     data = new String[noOfRows][noOfCols];
      for(int i =1; i<noOfRows;i++){
 
           for(int j=0;j<noOfCols;j++){
-                row = sh.getRow(i);
-                cell= row.getCell(j);
 
-                data[i-1][j] = cell.getStringCellValue();
-                //System.out.println(data[i-1][j]);
+                data[i-1][j] = formatter.formatCellValue( sh.getRow(i-1).getCell(j));
+                System.out.println(data[i-1][j]);
                 
               
 

@@ -43,7 +43,7 @@ public class Tests {
      }
      
      
-     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+ //    @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void RegisterAndSignIn(String pName,String pCountry,String pEmail,String pPassword) {
     	 RegisterTest(pName, pCountry,pEmail, pPassword);
 //    	 Test Case 2 : Sign On
@@ -68,7 +68,7 @@ public class Tests {
     	 loginScreen.SelectSignOffLink();
      }
      
-     @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+  //   @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void IncorrectLogin(String pUsername,String pPassword) throws InterruptedException {
 //    	 Feature :A user will enter incorrect username or password on the tours web site
 //    	 Scenario Outline : The user will enter incorrect username or password ;then they will not be able to sign in.

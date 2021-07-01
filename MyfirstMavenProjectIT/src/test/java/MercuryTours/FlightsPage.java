@@ -45,7 +45,7 @@ public class FlightsPage extends BasePage {
 		
 		// Click Continue
 	//	clickElement(By.xpath("//input[@name='findFlights']"));
-
+		clickElement(By.xpath("//input[@name='findFlights']"));
 	}
 	
 	public void clickFlights() {
