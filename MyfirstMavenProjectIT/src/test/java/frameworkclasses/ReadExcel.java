@@ -46,12 +46,12 @@ try
 
 
      data = new String[noOfRows][noOfCols];
-     for(int i =1; i<noOfRows;i++){
+     for(int i =0; i<noOfRows;i++){
 
           for(int j=0;j<noOfCols;j++){
 
-                data[i-1][j] = formatter.formatCellValue( sh.getRow(i-1).getCell(j));
-                System.out.println(data[i-1][j]);
+                data[i][j] = formatter.formatCellValue( sh.getRow(i).getCell(j));
+                System.out.println(data[i][j]);
                 
               
 
