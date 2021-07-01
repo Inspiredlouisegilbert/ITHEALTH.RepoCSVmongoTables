@@ -155,6 +155,6 @@ public class BasePage {
 		Select sDrpDown = new Select (getElement(pLocator));		
 		// Populates the Dropdown
 		sDrpDown.selectByVisibleText(pValue);
-}
+	}
 }
     

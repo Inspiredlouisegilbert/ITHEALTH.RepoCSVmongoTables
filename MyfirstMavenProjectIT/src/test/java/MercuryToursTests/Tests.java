@@ -3,12 +3,14 @@ package MercuryToursTests;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
+import MercuryTours.FlightsPage;
 import MercuryTours.LogIn;
 import MercuryTours.RegisterPage;
 
 public class Tests {
      RegisterPage reg = new RegisterPage(); 
      LogIn loginScreen = new LogIn();
+     FlightsPage flights = new FlightsPage();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
     // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
      //@Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
@@ -66,7 +68,7 @@ public class Tests {
     	 loginScreen.SelectSignOnLink();
 //   	 When User enters invalid username or password
     	 loginScreen.login(pUsername,pPassword);
-//	 		AND User clicks on the submit button
+//	 	 AND User clicks on the submit button
 //    	 THEN  An error message will be displayed "Enter your userName and password correct"
     	 String actual = loginScreen.ErrorMessage();
 	 String expected = "Enter your userName and password correct";
@@ -74,5 +76,10 @@ public class Tests {
 	 Assert.assertEquals(actual,expected);
      Thread.sleep(1000);
 
-}
+     }
+     
+     //method to book flight
+     public void FinfFlight() {
+    	 flights.CaptureFlightDetails(null, null, null, null, null, null, null, null, null, null);
+     }
 }

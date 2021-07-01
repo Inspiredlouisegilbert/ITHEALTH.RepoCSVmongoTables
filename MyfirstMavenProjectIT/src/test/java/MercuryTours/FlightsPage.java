@@ -15,7 +15,7 @@ public class FlightsPage extends BasePage {
 		// Find our dropdown and stored it in a variable
 		
 		selectDropDown(By.xpath("//select[@name='passCount']"), sPassCount);
-//select[@name='passCount']
+		//select[@name='passCount']
 		// From Port Drop Down
 		
 		selectDropDown(By.xpath("//select[@name='fromPort']"), sFromPort);
@@ -39,7 +39,7 @@ public class FlightsPage extends BasePage {
 		selectDropDown(By.xpath("//select[@name='airline']"), sPrefAirline);
 		
 		// Service class
-//		driver.findElement(By.xpath("//input[@value='First']")).click();
+		//driver.findElement(By.xpath("//input[@value='First']")).click();
 		// Multiple attributes
 		clickElement(By.xpath("//input[@name='servClass'][@value=" + sFlightType + "]"));
 		
