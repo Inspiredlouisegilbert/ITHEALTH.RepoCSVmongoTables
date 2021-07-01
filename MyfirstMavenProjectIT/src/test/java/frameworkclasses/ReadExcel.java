@@ -9,16 +9,16 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExcel extends BasePage{
-	 public Object[][] excelDP(String pProperty,String pfilename,String pSheet) throws IOException{
+	public Object[][] excelDP(String pProperty,String pfilename,String pSheet) throws IOException{
 
-         //We are creating an object from the excel sheet data by calling a method that reads data from the excel stored locally in our system
- 		// Get the directory where the excel file is placed
- 		String excelDirectory = getDataConfigProperties(pProperty);
-         Object[][] arrObj = getExcelData(excelDirectory+pfilename,pSheet);
+        //We are creating an object from the excel sheet data by calling a method that reads data from the excel stored locally in our system
+		// Get the directory where the excel file is placed
+		String excelDirectory = getDataConfigProperties(pProperty);
+        Object[][] arrObj = getExcelData(excelDirectory+pfilename,pSheet);
 
-         return arrObj;
+        return arrObj;
 
- }
+}
 
  
  public String[][] getExcelData(String fileName, String sheetName){

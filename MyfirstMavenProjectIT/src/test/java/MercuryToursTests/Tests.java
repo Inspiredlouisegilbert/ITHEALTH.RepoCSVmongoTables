@@ -2,17 +2,22 @@ package MercuryToursTests;
 
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.junit.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import MercuryTours.LogIn;
 import MercuryTours.RegisterPage;
+import frameworkclasses.ReadExcel;
 import MercuryTours.FlightsPage;
 
 public class Tests {
      RegisterPage reg = new RegisterPage(); 
      LogIn loginScreen = new LogIn();
      FlightsPage flights = new FlightsPage();
+     ReadExcel excel= new ReadExcel();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
     // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
      //@Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
@@ -80,8 +85,9 @@ public class Tests {
 
 }
      
-     @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     @Test(dataProvider="excel")
      public void findFlight(String sFromPort, String sFromMonth, String sFromDay, String sToPort, String sToMonth, String sToDay) {
+    	 System.out.println("fromprot: "+ sFromPort );
     	//When User clicks on the hyperlink "Flights"
     	 flights.clickFlights();
     	 
@@ -94,4 +100,10 @@ public class Tests {
     	 flights.CaptureFlightDetails(sFromPort, sFromMonth, sFromDay, sToPort, sToMonth, sToDay);
     	 Assert.assertTrue(flights.verifyFlightSuccess());
      }
+     
+     @DataProvider(name = "excel")
+     public Object[][] excelDP() throws IOException{
+      return excel.excelDP("excelDir", "MercuryTourFlights.xlsx", "Sheet1");
+       
+ }
 }

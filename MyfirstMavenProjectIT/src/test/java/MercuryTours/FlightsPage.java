@@ -59,4 +59,7 @@ public class FlightsPage extends BasePage {
 	public boolean verifyFlightSuccess() {
 		return getElement(By.xpath("//img [@src='images/home.gif']")).isDisplayed();
 	}
+	
+	
+	
 }
