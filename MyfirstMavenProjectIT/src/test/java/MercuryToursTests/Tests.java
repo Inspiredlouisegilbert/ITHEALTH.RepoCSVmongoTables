@@ -1,14 +1,18 @@
 package MercuryToursTests;
 
+import static org.testng.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import MercuryTours.LogIn;
 import MercuryTours.RegisterPage;
+import MercuryTours.FlightsPage;
 
 public class Tests {
      RegisterPage reg = new RegisterPage(); 
      LogIn loginScreen = new LogIn();
+     FlightsPage flights = new FlightsPage();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
     // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
      //@Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
@@ -75,4 +79,19 @@ public class Tests {
      Thread.sleep(1000);
 
 }
+     
+     @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     public void findFlight(String sFromPort, String sFromMonth, String sFromDay, String sToPort, String sToMonth, String sToDay) {
+    	//When User clicks on the hyperlink "Flights"
+    	 flights.clickFlights();
+    	 
+    	//THEN Flight Finder page is displayed
+    	 assertTrue(flights.verifyFlightsPage());
+    	
+    	//AND The user will fill in the "Flight Details"
+    	//AND The user will fill in the "Preferences"
+    	//AND The user will click the continue button
+    	 flights.CaptureFlightDetails(sFromPort, sFromMonth, sFromDay, sToPort, sToMonth, sToDay);
+    	 Assert.assertTrue(flights.verifyFlightSuccess());
+     }
 }
