@@ -1,23 +1,16 @@
 package MercuryToursTests;
 
-import static org.testng.Assert.assertTrue;
-
-import java.io.IOException;
-
 import org.junit.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import MercuryTours.FlightsPage;
 import MercuryTours.LogIn;
 import MercuryTours.RegisterPage;
-import frameworkclasses.ReadExcel;
-import MercuryTours.FlightsPage;
 
 public class Tests {
      RegisterPage reg = new RegisterPage(); 
      LogIn loginScreen = new LogIn();
      FlightsPage flights = new FlightsPage();
-     ReadExcel excel= new ReadExcel();
      //|Junaid 	|Brazil		|juanid@gmail.com  |password@4
     // String name="junaid",lastName= "fredericks",country="BRAZIL", email= "junaid@gmail.com", password="password@4",invalidemail="faith.com",invalidpassword ="pass";
      //@Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
@@ -43,7 +36,7 @@ public class Tests {
      }
      
      
- //    @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     @Test(dataProvider="ToursValidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void RegisterAndSignIn(String pName,String pCountry,String pEmail,String pPassword) {
     	 RegisterTest(pName, pCountry,pEmail, pPassword);
 //    	 Test Case 2 : Sign On
@@ -68,14 +61,14 @@ public class Tests {
     	 loginScreen.SelectSignOffLink();
      }
      
-  //   @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
+     @Test(dataProvider="ToursInvalidUsers", dataProviderClass=dataProviders.NewToursDataProvider.class)
      public void IncorrectLogin(String pUsername,String pPassword) throws InterruptedException {
 //    	 Feature :A user will enter incorrect username or password on the tours web site
 //    	 Scenario Outline : The user will enter incorrect username or password ;then they will not be able to sign in.
     	 loginScreen.SelectSignOnLink();
 //   	 When User enters invalid username or password
     	 loginScreen.login(pUsername,pPassword);
-//	 		AND User clicks on the submit button
+//	 	 AND User clicks on the submit button
 //    	 THEN  An error message will be displayed "Enter your userName and password correct"
     	 String actual = loginScreen.ErrorMessage();
 	 String expected = "Enter your userName and password correct";
@@ -83,27 +76,10 @@ public class Tests {
 	 Assert.assertEquals(actual,expected);
      Thread.sleep(1000);
 
-}
-     
-     @Test(dataProvider="excel")
-     public void findFlight(String sFromPort, String sFromMonth, String sFromDay, String sToPort, String sToMonth, String sToDay) {
-    	 System.out.println("fromprot: "+ sFromPort );
-    	//When User clicks on the hyperlink "Flights"
-    	 flights.clickFlights();
-    	 
-    	//THEN Flight Finder page is displayed
-    	 assertTrue(flights.verifyFlightsPage());
-    	
-    	//AND The user will fill in the "Flight Details"
-    	//AND The user will fill in the "Preferences"
-    	//AND The user will click the continue button
-    	 flights.CaptureFlightDetails(sFromPort, sFromMonth, sFromDay, sToPort, sToMonth, sToDay);
-    	 Assert.assertTrue(flights.verifyFlightSuccess());
      }
      
-     @DataProvider(name = "excel")
-     public Object[][] excelDP() throws IOException{
-      return excel.excelDP("excelDir", "MercuryTourFlights.xlsx", "Sheet1");
-       
- }
+     //method to book flight
+     public void FinfFlight() {
+    	 flights.CaptureFlightDetails(null, null, null, null, null, null, null, null, null, null);
+     }
 }
