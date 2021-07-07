@@ -4,7 +4,6 @@
   <test thread-count="5" name="Test" parallel="classes">
     <classes>
 		<class name="restful.Restful" />
-
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

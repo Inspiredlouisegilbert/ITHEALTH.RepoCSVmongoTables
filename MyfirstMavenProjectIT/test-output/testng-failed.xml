@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MercuryToursTests.Tests">
+      <class name="com.org.MyFristMavenProjectIT.TablesDemoKeywords">
         <methods>
-          <include name="SignIn"/>
+          <include name="runTestStart"/>
+          <include name="cleanup"/>
+          <include name="tabless"/>
         </methods>
-      </class> <!-- MercuryToursTests.Tests -->
+      </class> <!-- com.org.MyFristMavenProjectIT.TablesDemoKeywords -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
