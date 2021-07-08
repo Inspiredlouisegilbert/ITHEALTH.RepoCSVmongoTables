@@ -56,6 +56,23 @@ public class HTTPgetDemo
                 .extract().response();
 
         Assert.assertEquals(response.statusCode(),200);
-        Assert.assertEquals(response.jsonPath().getString("email[3]"),"Meghan_Littel@rene.us");
+        
+      Assert.assertEquals(response.jsonPath().getString("email[3]"),"Meghan_Littel@rene.us");
+    }
+    
+    
+    @Test
+    public void geNameParam() {
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .param("name", "Leanne Graham")
+                .when()
+                .get("/users")
+                .then()
+                .extract().response();
+
+        Assert.assertEquals(response.statusCode(),200);
+        
+      Assert.assertEquals(response.jsonPath().getString("email[0]"),"Sincere@april.biz");
     }
 }
