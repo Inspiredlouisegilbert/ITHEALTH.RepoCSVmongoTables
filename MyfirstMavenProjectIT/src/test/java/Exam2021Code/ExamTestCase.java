@@ -18,7 +18,8 @@ public class ExamTestCase {
 //AND  User makes a selection in the "Sort By" drop down list
 		results.selectSortBy("PRICE, LOW TO HIGH");
 //AND  User selects the first result
-		results.selectItem(1);
+		results.waitTill();
+		results.selectItem(2);
 //AND  User enters the quantity in the "Quantity" text field Quantity > 100 
 		item.enterQuantity("101");
 //AND  User clicks on the "Add to cart" button

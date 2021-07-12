@@ -95,7 +95,6 @@ public class BasePage {
 	public void waitForElement(int elementWait,By pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(pLocator));
-    	
 	}
 	
 	public void waitForClick(int elementWait,By pLocator) {
@@ -155,6 +154,7 @@ public class BasePage {
 		Select sDrpDown = new Select (getElement(pLocator));		
 		// Populates the Dropdown
 		sDrpDown.selectByVisibleText(pValue);
+		
 	}
 }
     

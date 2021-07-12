@@ -8,6 +8,7 @@ import frameworkclasses.BasePage;
 public class ProductItemPage extends BasePage{
 	
 	public void enterQuantity(String pQuantity) {
+		getElement(By.xpath("/html//input[@id='quantity_wanted']")).clear();
 		EnterText(By.xpath("/html//input[@id='quantity_wanted']"), pQuantity);
 	}
 	
