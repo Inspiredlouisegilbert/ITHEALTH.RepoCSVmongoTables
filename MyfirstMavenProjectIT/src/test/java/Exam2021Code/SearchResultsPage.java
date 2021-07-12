@@ -6,7 +6,8 @@ import frameworkclasses.BasePage;
 
 public class SearchResultsPage extends BasePage {
         public void selectSortBy(String pOption) {
-        	selectDropDown(By.cssSelector(".btn-unstyle.select-title"), pOption);
+        	clickElement(By.cssSelector(".btn-unstyle.select-title"));
+        	clickElement(By.partialLinkText(pOption));
         }
         
         public void selectItem(int pOption) {

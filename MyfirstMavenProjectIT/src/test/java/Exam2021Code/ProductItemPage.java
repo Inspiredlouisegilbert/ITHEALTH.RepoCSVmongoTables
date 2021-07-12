@@ -1,5 +1,6 @@
 package Exam2021Code;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 import frameworkclasses.BasePage;
@@ -12,5 +13,12 @@ public class ProductItemPage extends BasePage{
 	
 	public void clickAddToCart() {
 		clickElement(By.cssSelector(".add-to-cart-geewiz.btn.btn-primary"));
+		
+	}
+	
+	public String stockPopUpMessage() {
+		Alert alert = driver.switchTo().alert();
+		return alert.getText();
 	}
 }
+
