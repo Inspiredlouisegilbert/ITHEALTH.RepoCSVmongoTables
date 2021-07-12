@@ -59,20 +59,12 @@ public class HTTPpostDemo
     	//HTTP POST request is used to post data or create a resource on a server.
     	//To send a POST request in REST-assured, we use the post() method:
     	Assert.assertEquals(response.statusCode(),201);
-<<<<<<< HEAD
     	Assert.assertEquals(response.jsonPath().getString("participant1"),"Faith");
     	Assert.assertEquals(response.jsonPath().getString("participant2"),"Junaid");
     	Assert.assertEquals(response.jsonPath().getString("participant3"),"Polela");
     	Assert.assertEquals(response.jsonPath().getString("participant4"),"Mvuyo");
     	Assert.assertEquals(response.jsonPath().getString("participant5"),"Louise");
     	Assert.assertEquals(response.jsonPath().getString("participant6"),"Lisa");
-=======
-    	Assert.assertEquals(response.jsonPath().getString("participant1"),"Junaid");
-    	Assert.assertEquals(response.jsonPath().getString("participant2"),"Faith");
-    	Assert.assertEquals(response.jsonPath().getString("participant3"),"Mvuyo");
-    	Assert.assertEquals(response.jsonPath().getString("participant4"),"Polela");
-    //	Assert.assertEquals(response.jsonPath().getString("participant5"),"Thabiso");
-    //	Assert.assertEquals(response.jsonPath().getString("participant6"),"Mboni");
     }
     
     @Test
@@ -85,15 +77,5 @@ public class HTTPpostDemo
                 .post("/posts")
                 .then()
                 .extract().response();
-    	
-    	//HTTP POST request is used to post data or create a resource on a server.
-    	//To send a POST request in REST-assured, we use the post() method:
-    	Assert.assertEquals(response.statusCode(),201);
-    	Assert.assertEquals(response.jsonPath().getString("participant1"),"Junaid");
-    	Assert.assertEquals(response.jsonPath().getString("participant2"),"Faith");
-    	Assert.assertEquals(response.jsonPath().getString("participant3"),"Mvuyo");
-    	Assert.assertEquals(response.jsonPath().getString("participant4"),"Polela");
-   
->>>>>>> branch 'BDDBranch17June' of https://github.com/Inspiredlouisegilbert/ITHEALTH.RepoCSVmongoTables
     }
 }
