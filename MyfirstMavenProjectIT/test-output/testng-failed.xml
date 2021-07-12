@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.org.MyFristMavenProjectIT.TablesDemoKeywords">
+      <class name="restful.HTTPpostDemo">
         <methods>
-          <include name="runTestStart"/>
-          <include name="cleanup"/>
-          <include name="tabless"/>
+          <include name="getRequest"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.org.MyFristMavenProjectIT.TablesDemoKeywords -->
+      </class> <!-- restful.HTTPpostDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
