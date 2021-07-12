@@ -1,4 +1,4 @@
-package Exam2021;
+package Exam2021Code;
 
 import org.testng.annotations.Test;
 import org.testng.Assert;
