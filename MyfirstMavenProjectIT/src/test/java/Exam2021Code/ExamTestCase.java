@@ -29,7 +29,7 @@ public class ExamTestCase {
 		String actual = item.stockPopUpMessage();
 		String expected = "We have only 765 of this item in stock. Your requested quantity has been automatically adjusted.";
 		System.out.println(actual);
-		
+		Assert.assertEquals(actual, expected);
 		
 		/*
 		 
