@@ -5,12 +5,31 @@ import org.openqa.selenium.By;
 
 import frameworkclasses.BasePage;
 
-public class ProductItemPage extends BasePage{
+public class ProductItemPage extends BasePage {
 	
-	public void enterQuantity(String pQuantity) {
+	public void enterQuantity(int pQuantity) {
 		getElement(By.xpath("/html//input[@id='quantity_wanted']")).clear();
-		EnterText(By.xpath("/html//input[@id='quantity_wanted']"), pQuantity);
+		EnterText(By.xpath("/html//input[@id='quantity_wanted']"),Integer.toString(pQuantity));
 	}
+	
+	public void getMaxQuantity(int pOption){
+		boolean max= true;
+		while(max) {
+			
+			try {
+				enterQuantity(pOption);
+				System.out.println("entered value ");
+				String message = stockPopUpMessage();
+				//System.out.println(message);
+				max = false;
+			}catch (Exception e) {
+				pOption = pOption+100;
+				System.out.println("added 100");			
+				}
+				
+			}
+		}
+	
 	
 	public void clickAddToCart() {
 		clickElement(By.cssSelector(".add-to-cart-geewiz.btn.btn-primary"));
@@ -18,8 +37,10 @@ public class ProductItemPage extends BasePage{
 	}
 	
 	public String stockPopUpMessage() {
-		Alert alert = driver.switchTo().alert();
-		return alert.getText();
+		return getElementText(By.xpath("//*[@id='product_confirmation_modal']/div[1]"));
 	}
+	
+	public boolean isPopUpVisisible() {
+		return getElement(By.xpath("//*[@id='product_confirmation_modal']/div[1]")).isDisplayed();
 }
-
+	}

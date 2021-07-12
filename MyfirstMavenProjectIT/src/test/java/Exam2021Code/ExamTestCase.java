@@ -21,13 +21,14 @@ public class ExamTestCase {
 		results.waitTill();
 		results.selectItem(2);
 //AND  User enters the quantity in the "Quantity" text field Quantity > 100 
-		item.enterQuantity("101");
+	  //  item.enterQuantity(800);
+		item.getMaxQuantity(101);
 //AND  User clicks on the "Add to cart" button
-		item.clickAddToCart();
+		//item.clickAddToCart();
 //THEN  User receives stock pop up message 
-//		String actual = item.stockPopUpMessage();
-//		String expected = "";
-//		System.out.println(actual);
+		String actual = item.stockPopUpMessage();
+		String expected = "We have only 765 of this item in stock. Your requested quantity has been automatically adjusted.";
+		System.out.println(actual);
 		
 		
 		/*
