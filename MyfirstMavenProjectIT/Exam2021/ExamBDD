@@ -1,0 +1,22 @@
+Test Case : Examination on the geewiz website
+
+Feature :As a user I would like to search for an item
+
+Background:
+Given user will navigate to the URL https://www.geewiz.co.za)
+Scenario Outline :On the Search text box, the user will search for the item.
+
+When  User enters search criteria in the text box 
+AND	  User clicks on the magnifying glass button
+AND   User makes a selection in the "Sort By" drop down list
+AND   User selects the first result
+AND   User enters the quantity in the "Quantity" text field Quantity > 100 
+AND   User clicks on the "Add to cart" button
+THEN  User receives stock pop up message 
+AND   User clicks on Continue shopping button
+
+Examples:
+|Search Item|Quantity|Message | Sort Type
+|solar 		| 101    | out of stock pop-up|lowest first
+|camera 	|110     | out of stock pop-up|lowest first
+|speaker 	|150     |out of stock pop-up|lowest first
