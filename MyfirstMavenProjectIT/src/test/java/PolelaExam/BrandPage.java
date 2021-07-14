@@ -13,3 +13,4 @@ public class BrandPage extends BasePage {
 		clickElement(By.xpath("//*[@id=\"js-product-list\"]/div/div/div/div[1]/article"));
 	}
 }
+

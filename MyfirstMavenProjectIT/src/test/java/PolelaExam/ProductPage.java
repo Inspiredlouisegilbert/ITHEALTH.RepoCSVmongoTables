@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 
 import frameworkclasses.BasePage;
 
-public class ProductPage extends BasePage {
+public class ProductPage extends BasePage
+{
 
 	 public void rateProduct() {
 		 clickElement(By.xpath("/html//a[@id='bt_btn-review-form']"));

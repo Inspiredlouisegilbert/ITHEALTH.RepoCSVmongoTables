@@ -58,4 +58,20 @@ public class HTTPgetDemo
         Assert.assertEquals(response.statusCode(),200);
         Assert.assertEquals(response.jsonPath().getString("email[3]"),"Meghan_Littel@rene.us");
     }
+    
+    @Test
+    public void getName() {
+    	Response response = given()
+                .contentType(ContentType.JSON)
+                .param("name", "Leanne Graham")
+                .when()
+                .get("/users")
+                .then()
+                .extract().response();
+
+        Assert.assertEquals(response.statusCode(),404);
+        Assert.assertEquals(response.jsonPath().getString("email[0]"),"Sincere@april.biz");
+        Assert.assertEquals(response.jsonPath().getString("address[0].zipcode") + " " + response.jsonPath().getString("address[0].street") ,"92998-3874 Kulas Light");
+       // System.out.println(response.jsonPath().getString("address[0].zipcode"));
+    }
 }
