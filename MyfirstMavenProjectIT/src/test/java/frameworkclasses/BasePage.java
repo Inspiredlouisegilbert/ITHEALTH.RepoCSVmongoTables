@@ -8,6 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -97,6 +98,11 @@ public class BasePage {
     	wait.until(ExpectedConditions.visibilityOfElementLocated(pLocator));
 	}
 	
+	public void waitForUrl(int elementWait,String pLocator) {
+		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
+    	wait.until(ExpectedConditions.urlToBe(pLocator));
+	}
+	
 	public void waitForClick(int elementWait,By pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
     	wait.until(ExpectedConditions.elementToBeClickable(pLocator));
@@ -112,7 +118,10 @@ public class BasePage {
 		String h1 = getElement(pLocator).getText();
 		return h1;
 	}
-
+	public WebElement getElementClick(By pLocator) {
+		waitForClick(10, pLocator);
+		return getElement(pLocator);
+	}
 	public void clickElement(By pLocator)  {
 		
 		waitForClick(10,pLocator);
@@ -123,6 +132,11 @@ public class BasePage {
 //		act.moveToElement(clickElement).click().perform();
 	}
 	
+	public void clickJavascript(By pLocator) {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 WebElement element= getElementClick(pLocator);
+		 jse.executeScript("arguments[0].click()",element);
+	}
 	
 	public WebElement getElement(By pLocator) {
 		
