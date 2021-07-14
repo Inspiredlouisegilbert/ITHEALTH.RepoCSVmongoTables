@@ -13,7 +13,7 @@ public class TestScript {
 	public void EnterSearch () {
 		
 	home.clickBargain();
-	brand.selectBrand("dell");
+	brand.selectBrand("Dell");
 	
 	brand.selectProduct();
 	prod.rateProduct();
