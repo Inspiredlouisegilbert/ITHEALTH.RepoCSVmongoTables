@@ -12,11 +12,12 @@ public class BrandPage extends BasePage {
 	}
 	
 	public void selectProduct() {
-		clickElement(By.xpath("//*[@id=\"js-product-list\"]/div/div/div/div[1]/article/div/div[2]/h3/a"));
+		clickJavascript(By.xpath("//*[@id=\"js-product-list\"]/div/div/div/div[1]/article/div/div[2]/h3/a"));
+		
 	}
 	
 	
-	public void waitFunction(){
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+	public void waitFunction(String pProduct){
+	  waitForUrl(10,"https://www.geewiz.co.za/1938-bargain-bin?q=Brand-"+ pProduct);
 	}
 }

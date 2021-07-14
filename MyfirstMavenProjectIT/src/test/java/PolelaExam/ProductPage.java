@@ -20,6 +20,6 @@ public class ProductPage extends BasePage
 	 }
 	 
 	 public void clickAddToCart() {
-		 clickElement(By.xpath("//*[@id=\"add-to-cart-or-refresh\"]/div[2]/div[1]/div[2]/button[1]"));
+		 clickJavascript(By.xpath("//*[@id=\"add-to-cart-or-refresh\"]/div[2]/div[1]/div[2]/button[1]"));
 	 }
 }

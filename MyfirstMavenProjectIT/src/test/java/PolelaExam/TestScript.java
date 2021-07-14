@@ -14,7 +14,7 @@ public class TestScript {
 		
 	home.clickBargain();
 	brand.selectBrand("Dell");
-	brand.waitFunction();
+	brand.waitFunction("Dell");
 	brand.selectProduct();
 	prod.rateProduct();
 	String Actual = prod.getErrorMessage();
