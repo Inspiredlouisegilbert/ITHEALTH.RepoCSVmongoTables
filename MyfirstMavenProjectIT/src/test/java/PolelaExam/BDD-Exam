@@ -1,0 +1,19 @@
+Test Case : Individual exam on geewiz 
+
+Feature :As a user I would like to search for an item with the dell brand
+
+Background:
+Given user will navigate to the link (https://www.geewiz.co.za/1938-bargain-bin)
+Scenario Outline :On the landing page, user must click on the Bargain Bin menu option
+
+When  User under the filter by option
+AND	  User select the Dell checkbox option
+AND   User clicks on the first item displayed 
+THEN  User validates the rate pop message
+AND   User adds the item to the cart button
+THEN  User handles the stock pop up message
+
+
+Examples:
+|Search Item|Quantity|Message |
+|dell		| 1    | rate pop up message  

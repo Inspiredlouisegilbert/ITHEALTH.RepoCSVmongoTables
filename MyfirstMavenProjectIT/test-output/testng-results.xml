@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-08T16:15:24 SAST" name="Default suite" finished-at="2021-07-08T16:15:26 SAST" duration-ms="2384">
+  <suite started-at="2021-07-15T15:58:45 SAST" name="Default suite" finished-at="2021-07-15T15:59:07 SAST" duration-ms="21746">
     <groups>
     </groups>
-    <test started-at="2021-07-08T16:15:24 SAST" name="Default test" finished-at="2021-07-08T16:15:26 SAST" duration-ms="2384">
-      <class name="restful.HTTPputDemo">
-        <test-method is-config="true" signature="setup()[pri:0, instance:restful.HTTPputDemo@37d4349f]" started-at="2021-07-08T16:15:24 SAST" name="setup" finished-at="2021-07-08T16:15:24 SAST" duration-ms="396" status="PASS">
+    <test started-at="2021-07-15T15:58:45 SAST" name="Default test" finished-at="2021-07-15T15:59:07 SAST" duration-ms="21746">
+      <class name="PolelaExam.TestScript">
+        <test-method signature="StartTest()[pri:0, instance:PolelaExam.TestScript@7859e786]" started-at="2021-07-15T15:58:46 SAST" name="StartTest" finished-at="2021-07-15T15:58:52 SAST" duration-ms="6494" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="putRequest()[pri:0, instance:restful.HTTPputDemo@37d4349f]" started-at="2021-07-08T16:15:24 SAST" name="putRequest" finished-at="2021-07-08T16:15:26 SAST" duration-ms="1953" status="PASS">
+        </test-method> <!-- StartTest -->
+        <test-method signature="EnterSearch()[pri:1, instance:PolelaExam.TestScript@7859e786]" started-at="2021-07-15T15:58:52 SAST" name="EnterSearch" finished-at="2021-07-15T15:59:03 SAST" duration-ms="10490" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- putRequest -->
-      </class> <!-- restful.HTTPputDemo -->
+        </test-method> <!-- EnterSearch -->
+        <test-method signature="Results()[pri:2, instance:PolelaExam.TestScript@7859e786]" started-at="2021-07-15T15:59:03 SAST" name="Results" finished-at="2021-07-15T15:59:07 SAST" duration-ms="4652" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Results -->
+      </class> <!-- PolelaExam.TestScript -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
