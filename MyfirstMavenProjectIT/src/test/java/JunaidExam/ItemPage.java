@@ -23,6 +23,6 @@ public class ItemPage extends BasePage{
 	 }
 	 
 	 public void proceedToShop() {
-		 clickElement(By.xpath("//*[@id=\"blockcart-modal\"]/div/div/div[2]/div/div[2]/div/div[2]/button"));
+		 clickJavascript(By.xpath("//*[@id=\"blockcart-modal\"]/div/div/div[2]/div/div[2]/div/div[2]/button"));
 	 }
 }

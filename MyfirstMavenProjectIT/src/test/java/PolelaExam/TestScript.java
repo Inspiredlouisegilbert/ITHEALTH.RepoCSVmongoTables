@@ -12,7 +12,6 @@ public class TestScript {
 	
 	@Test (priority=0)
 	public void StartTest() {
-	home.clickBargain();
 	brand.selectBrand("Dell");
 	brand.waitFunction("Dell");
 	}
