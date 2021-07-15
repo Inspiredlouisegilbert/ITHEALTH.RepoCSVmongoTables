@@ -77,7 +77,7 @@ public class BasePage {
 		Properties p = new Properties();
 		InputStream is = null;
 		try {
-			is = new FileInputStream("config.properties");
+			is = new FileInputStream("configExam.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,7 +100,7 @@ public class BasePage {
 	
 	public void waitForUrl(int elementWait,String pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
-    	wait.until(ExpectedConditions.urlToBe(pLocator));
+    	wait.until(ExpectedConditions.urlContains(pLocator));
 	}
 	
 	public void waitForClick(int elementWait,By pLocator) {
