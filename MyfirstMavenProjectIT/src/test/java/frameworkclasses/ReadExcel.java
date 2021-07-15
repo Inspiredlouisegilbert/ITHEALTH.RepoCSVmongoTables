@@ -46,7 +46,7 @@ try
  
 
      data = new String[noOfRows][noOfCols];
-     for(int i =0; i<noOfRows;i++){
+     for(int i =1; i<noOfRows;i++){
 
           for(int j=0;j<noOfCols;j++){
 

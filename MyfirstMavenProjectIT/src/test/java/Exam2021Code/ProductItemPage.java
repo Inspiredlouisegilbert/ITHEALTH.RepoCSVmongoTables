@@ -30,10 +30,17 @@ public class ProductItemPage extends BasePage {
 			}
 		}
 	
+	  public void handleErrorMessage() {
+      	clickElement(By.xpath("//*[@id=\"product_confirmation_modal\"]/div[2]/button"));
+      }
 	
 	public void clickAddToCart() {
 		clickElement(By.cssSelector(".add-to-cart-geewiz.btn.btn-primary"));
 		
+	}
+	
+	public String getMaxNum() {
+		return getElementText(By.xpath("/html//input[@id='quantity_wanted']"));
 	}
 	
 	public String stockPopUpMessage() {

@@ -17,8 +17,28 @@ public class SearchResultsPage extends BasePage {
         	clickElement(By.xpath("//*[@id='js-product-list']/div/div/div/div["+pOption+"]"));
         }
         
-        public void waitTill() {
+        public void waitTill(String pSort) {
         	WebDriverWait wait = new WebDriverWait(BasePage.driver,10);
-        	wait.until(ExpectedConditions.urlContains("https://www.geewiz.co.za/search?controller=search&s=solar&order=product.price.asc"));
+        	switch (pSort) {
+			case "Relevance":
+	        	wait.until(ExpectedConditions.urlContains("product.position.desc"));
+				break;
+			case "Name, Z to A":
+	        	wait.until(ExpectedConditions.urlContains("product.name.desc"));
+				break;
+			case "Name,  A to Z":
+				wait.until(ExpectedConditions.urlContains("product.name.asc"));
+				break;
+			case "PRICE, LOW TO HIGH":
+				wait.until(ExpectedConditions.urlContains("product.price.asc"));
+				break;
+			
+			case "PRICE, HIGH TO LOW":
+	        	wait.until(ExpectedConditions.urlContains("product.price.desc"));
+
+				break;
+        	}
         }
+        
+      
 }

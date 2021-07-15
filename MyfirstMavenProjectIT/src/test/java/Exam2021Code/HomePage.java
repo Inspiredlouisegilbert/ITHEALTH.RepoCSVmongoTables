@@ -7,6 +7,7 @@ import frameworkclasses.BasePage;
 public class HomePage extends BasePage {
 	
 	public void EnterSearchItem(String pItem) {
+		getElement(By.xpath("//*[@id='search_widget']/form/input[2]")).clear();
 		EnterText(By.xpath("//*[@id='search_widget']/form/input[2]"), pItem);
 	}
 	
