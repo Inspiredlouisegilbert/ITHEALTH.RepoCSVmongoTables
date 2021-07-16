@@ -1,0 +1,27 @@
+Test Case :Geewiz website (Individual Examation July 2021)
+
+Feature :As user I would like to search for an item on the website
+
+Background:
+           Given:A user will navigate to the URL https://www.geewiz.co.za
+           Given:A user will click on the bargain bin link https://www.geewiz.co.za//1938-bargain-bin
+           
+           
+Scenario Outline :The user would like to search for an item using the search text box.
+
+WHEN  User search for an item by clicking the link "Bargain Item Bin"
+AND   User select the "dell" check box option
+AND   User clicks on the first item displayed 
+THEN  User verifies the rate pop message
+AND   User asserts the rate pop up message "You cannot post a review because you are either not logged in or you have not purchased this product"
+AND   User adds item using the cart button
+THEN  User handles the stock pop up message
+
+ 
+
+
+Examples:
+|Search Item |Quantity   |Message 
+|Dell        |1          |rate pop up message 
+|HP          |1          |rate pop up message
+|D-Link      |1          |rate pop up message

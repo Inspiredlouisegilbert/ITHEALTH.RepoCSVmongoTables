@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import frameworkclasses.BasePage;
 
 public class BrandPage extends BasePage {
+	
+	
 	public void selectBrand(String pBrand) {
 		clickElement(By.xpath("//*[contains(text(),'"+pBrand+"')]"));
 	}
