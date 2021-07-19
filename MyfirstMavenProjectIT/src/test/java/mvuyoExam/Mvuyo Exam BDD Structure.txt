@@ -1,0 +1,20 @@
+Test Case : geewiz website exam
+
+Feature :As a user I would like to filter three (3) products on the bargin bin page into my shopping cart
+
+Given URL: https://www.geewiz.co.za
+	
+			
+			Given	User clicks on the BarginBin link
+			AND		User Select the <Brand> in order to filter it out
+			AND		User Select the product
+			AND		User Clicks the rate button	
+			THEN	Assert the Pop-up message if it returns the correct message. Message: "You cannot post a review because you are either not logged in or you have not purchased this product"
+			Given	Handle message	
+			AND		User clicks Add to Cart
+			
+			Examples:
+					|PRODUCT|
+					|HP  	|
+					|DETTOL |
+					|BTI  	|
