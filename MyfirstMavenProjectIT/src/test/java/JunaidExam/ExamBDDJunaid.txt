@@ -1,0 +1,24 @@
+Test Case : Examination on the geewiz website
+
+	Feature :As a user I would like to filter products on the bargin bin page based on the Brand of the product and select the product and able to rate it and then add to cart
+
+	Background:
+		Given user will navigate to the URL https://www.geewiz.co.za)
+		Scenario Outline :User goes to bargin bin page and filter products and rates the product and gets an error message
+		
+			Given	User clicks on the BarginBin link
+			AND		User Select the <Brand> in order to filter it out
+			AND		User Select the product
+			AND		User Clicks the rate it button	
+			THEN	Assert Popup message stating "You cannot post a review because you are either not logged in or you have not purchased this product"
+			Given	Handle message	
+			AND		User clicks Add to Cart
+			AND		User clicks proceed to shop
+			
+		Examples:
+					|Brand|
+					|BTI  |
+					|PORT |
+					|HP   |
+
+		
