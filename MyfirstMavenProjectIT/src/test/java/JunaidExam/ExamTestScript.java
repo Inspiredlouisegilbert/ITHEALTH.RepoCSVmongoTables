@@ -65,8 +65,8 @@ public class ExamTestScript {
 		Reporter.log("Clicked Add to Cart");
 
 //		Click Proceed to shop
-		item.proceedToShop();
-		Reporter.log("Clicked Proceed to Shop");
+//		item.proceedToShop();
+//		Reporter.log("Clicked Proceed to Shop");
 
 		}
 	}
