@@ -100,8 +100,8 @@ public class BasePage {
 	
 	public void waitForUrl(int elementWait,String pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);
-    	wait.until(ExpectedConditions.urlToBe(pLocator));
-	}
+		wait.until(ExpectedConditions.urlContains(pLocator));
+		}
 	
 	public void waitForClick(int elementWait,By pLocator) {
 		WebDriverWait wait = new WebDriverWait(BasePage.driver,elementWait);

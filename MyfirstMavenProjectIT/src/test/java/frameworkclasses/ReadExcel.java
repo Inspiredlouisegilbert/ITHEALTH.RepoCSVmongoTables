@@ -45,13 +45,13 @@ try
      //High level representation of a cell in a row of a spreadsheet.
  
 
-     data = new String[noOfRows][noOfCols];
+     data = new String[noOfRows-1][noOfCols];
      for(int i =1; i<noOfRows;i++){
 
           for(int j=0;j<noOfCols;j++){
 
-                data[i][j] = formatter.formatCellValue( sh.getRow(i).getCell(j));
-                System.out.println(data[i][j]);
+                data[i-1][j] = formatter.formatCellValue( sh.getRow(i).getCell(j));
+                System.out.println(data[i-1][j]);
                 
               
 

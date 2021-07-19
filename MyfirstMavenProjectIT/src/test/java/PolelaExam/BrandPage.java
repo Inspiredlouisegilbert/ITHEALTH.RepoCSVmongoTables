@@ -8,7 +8,7 @@ import frameworkclasses.BasePage;
 
 public class BrandPage extends BasePage {
 	public void selectBrand(String pBrand) {
-		clickElement(By.xpath("//*[contains(text(),'"+pBrand+"')]"));
+		clickJavascript(By.xpath("//*[contains(text(),'"+pBrand+"')]"));
 	}
 	
 	public void selectProduct() {
@@ -18,6 +18,6 @@ public class BrandPage extends BasePage {
 	
 	
 	public void waitFunction(String pProduct){
-	  waitForUrl(10,"https://www.geewiz.co.za/1938-bargain-bin?q=Brand-"+ pProduct);
+	  waitForUrl(10,pProduct);
 	}
 }

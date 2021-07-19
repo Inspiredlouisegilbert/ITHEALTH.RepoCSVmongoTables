@@ -8,7 +8,11 @@ public class ProductPage extends BasePage
 {
 
 	 public void rateProduct() {
-		 clickElement(By.xpath("/html//a[@id='bt_btn-review-form']"));
+		 clickJavascript(By.xpath("/html//a[@id='bt_btn-review-form']"));
+	 }
+	 
+	 public void clickContinue() {
+		 clickJavascript(By.xpath("/html//div[@id='blockcart-modal']/div[@role='document']/div[@class='modal-content']//div[@class='cart-content-btn']/button[@type='button']"));
 	 }
 	 
 	 public String getErrorMessage() {
@@ -16,7 +20,7 @@ public class ProductPage extends BasePage
 	 }
 	 
 	 public void clickClose() {
-		 clickElement(By.xpath("//body[@id='product']/div[18]/div//a[@title='Close']"));
+		 clickJavascript(By.xpath("//body[@id='product']/div[18]/div//a[@title='Close']"));
 	 }
 	 
 	 public void clickAddToCart() {

@@ -1,6 +1,6 @@
 Test Case : Individual exam on geewiz 
 
-Feature :As a user I would like to search for an item with the dell brand
+Feature :As a user I would like to search for an item from the filter menu
 
 Background:
 Given user will navigate to the link (https://www.geewiz.co.za/1938-bargain-bin)
@@ -15,5 +15,7 @@ THEN  User handles the stock pop up message
 
 
 Examples:
-|Search Item|Quantity|Message |
-|dell		| 1    | rate pop up message  
+|Search Item|Quantity|Message 
+|dell		|1    	 | rate pop up message 
+|dettol     |1	     |rate pop up message
+|targus     |1       |rate pop up message
