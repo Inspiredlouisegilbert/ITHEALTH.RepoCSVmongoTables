@@ -17,7 +17,7 @@ public class ExamTestScript {
 	ReadExcel rExcel = new ReadExcel();
 	
 	@Test(dataProvider = "testData",priority = 0)
-	public void StartTestExam(String pitem) {
+	public void TestExam(String pitem) {
 //WHEN  User search for an item by clicking the link "Bargain Item Bin"
 	home.clickBargainItem();
 //AND   User select the "dell" check box option

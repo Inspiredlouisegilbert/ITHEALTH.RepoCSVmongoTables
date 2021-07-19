@@ -51,7 +51,7 @@ public class TestNGlisteners extends BasePage implements ITestListener
 	}
 
 	public void onTestSuccess(ITestResult result) {
-
+		result.setTestName("customTestName");
 		// TODO Auto-generated method stub
 		System.out.println("****** Test Success: " + result.getName());
 		try {
