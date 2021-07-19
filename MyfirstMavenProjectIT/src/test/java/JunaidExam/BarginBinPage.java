@@ -10,9 +10,7 @@ public class BarginBinPage extends BasePage {
 	}
 	
 	public void clickProduct(int pItemNumber) {
-		//clickJavascript(By.xpath("//*[@id=js-product-list]/div/div/div/div[1]/article/div/div[2]/h3/a"));
 		clickJavascript(By.xpath("//*[@id=\"js-product-list\"]/div/div/div/div["+pItemNumber+"]/article/div/div[2]/h3/a"));
-
 	}
 	
 	
