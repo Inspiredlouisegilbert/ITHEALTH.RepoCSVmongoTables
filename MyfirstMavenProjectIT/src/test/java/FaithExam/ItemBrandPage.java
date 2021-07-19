@@ -8,11 +8,11 @@ public class ItemBrandPage extends BasePage{
 	
 	
 	public void waitFunction(String pItem){
-		  waitForUrl(10,"https://www.geewiz.co.za/1938-bargain-bin?q=Brand-"+ pItem);
+		  waitForUrl(10,pItem);
 		}
 	
 	public void selectItemBrand(String pItem) {
-		clickElement(By.xpath("//*[contains(text(),'"+pItem+"')]"));
+		clickJavascript(By.xpath("//*[contains(text(),'"+pItem+"')]"));
 	}
 	
 	public void selectItem() {

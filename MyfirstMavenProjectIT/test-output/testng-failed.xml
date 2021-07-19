@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite configfailurepolicy="continue" thread-count="2" parallel="tests" name="Failed suite [Regression101]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="testngListeners.TestNGlisteners"/>
+  </listeners>
+  <test thread-count="2" parallel="tests" name="ChromeTest(failed)">
     <classes>
-      <class name="restful.HTTPpostDemo">
+      <class name="FaithExam.ExamTestScript">
         <methods>
-          <include name="getRequest"/>
-          <include name="setup"/>
+          <include name="StartTestExam" invocation-numbers="0 1 2"/>
         </methods>
-      </class> <!-- restful.HTTPpostDemo -->
+      </class> <!-- FaithExam.ExamTestScript -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [Regression101] -->
