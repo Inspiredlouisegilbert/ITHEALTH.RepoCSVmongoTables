@@ -13,7 +13,6 @@ Test Case : Examination on the geewiz website
 			THEN	Assert Popup message stating "You cannot post a review because you are either not logged in or you have not purchased this product"
 			Given	Handle message	
 			AND		User clicks Add to Cart
-			AND		User clicks proceed to shop
 			
 		Examples:
 					|Brand|
