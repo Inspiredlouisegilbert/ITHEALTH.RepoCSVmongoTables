@@ -27,7 +27,8 @@ public class BasePage {
     public static WebDriver driver;
     
     //constructor of base class
-    public BasePage() {
+    public BasePage(
+	) {
     	
     	
         if (driver == null) {
